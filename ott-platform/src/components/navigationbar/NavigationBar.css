@@ -1,0 +1,14 @@
+.navigation-container{
+    background:black;
+    margin:0;
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    
+}
+.nav-bar{
+    /* display: flex;
+    flex-direction: row;
+    gap:50px; */
+    margin-top:50px;
+}

@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap');
+
+.signin-container {
+
+  padding: 20px;
+
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Movie-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #BB261A;
+
+
+
+
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  background: #1D253A;
+  border-radius: 12px;
+
+}
+
+.left-container {
+  background: #000000;
+  border-radius: 12px;
+  text-align: center;
+  /* padding: 50px; */
+  padding: 42px;
+
+
+}
+
+
+.left-p {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+
+}
+
+.sign-color {
+  color: #BB261A;
+}
+
+
+p {
+  color: white;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
+.signin-button {
+  background: #BB261A;
+  color: white;
+  margin-top: 53px;
+
+}
+
+
+
+.right-container {
+  /* background: #1D253A; */
+  /* border-radius: 12px; */
+  text-align: center;
+  padding: 65px;
+}
+
+.right-p {
+  color: #62D5BA;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0;
+
+}
+
+.streaming-ott {
+  color: #EB3223
+}
+
+.right-p2 {
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+}
+
+.right-container a {
+  color: #62D5BA;
+  text-decoration: none;
+}
+
+
+.signup-button {
+  background: #AFB2B9;
+  color: white;
+
+}
+
+.loading-iamge {
+  margin: 4rem 0 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    background-color: transparent;
+    gap: 30px;
+  }
+
+  .right-container {
+    background-color: #1D253A;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+
+  .left-container {
+    padding: 20px;
+  }
+
+  .signin-button {
+    margin-top: 0px;
+  }
+
+  .loading-iamge {
+    margin: 10px 0;
+  }
+}

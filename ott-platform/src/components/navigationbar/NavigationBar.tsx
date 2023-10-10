@@ -9,6 +9,8 @@ import ellipseIcon from '../../assets/images/Ellipse 2.png'
 
 const NavigationBar: React.FC = () => {
   return (
+
+
     <nav className="navigation-container">
       <ul>
         <li>
@@ -22,17 +24,17 @@ const NavigationBar: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/home/movie">
             <img src={movie} alt="movie" className="nav-bar" />
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/home/tvseries">
             <img src={tvSeries} alt="tvseries" className="nav-bar" />
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/home/bookmark">
             <img src={bookMark} alt="bookmark" className="nav-bar" />
           </a>
         </li>

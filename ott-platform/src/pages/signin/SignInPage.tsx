@@ -86,7 +86,6 @@ const SignInPage: React.FC<SignInPageProps> = ({
           <p className="left-p">
             Sign <span className="sign-color">in</span>
           </p>
-
           <form className='form-group'>
             <InputField label="Email" type="email" placeholder="Email" onChange={(e) => setUser({ ...user, email: e.target.value })} error={errors.email} />
             <InputField label="Password" type="password" placeholder="Password" onChange={(e) => setUser({ ...user, password: e.target.value })} error={errors.password} />

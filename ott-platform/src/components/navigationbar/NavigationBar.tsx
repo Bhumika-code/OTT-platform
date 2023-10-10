@@ -9,48 +9,40 @@ import ellipseIcon from '../../assets/images/Ellipse 2.png'
 
 const NavigationBar: React.FC = () => {
   return (
-
-    // <div className="navigation-container">
-      <nav className="navigation-container">
-        <ul>
-          <li>
-            <a href="/home">
-              <img src={movieImage} alt="movieimage" className="nav-bar" />
-            </a>
-          </li>
-          <li>
-            <a href="/home/dashboard">
-              <img src={dashBoard} alt="dashboard" className="nav-bar" />
-
-            </a>
-          </li>
-          {/* <li>
-            <a href="/">
-              <img src={movie} alt="movie" className="nav-bar" />
-
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src={tvSeries} alt="tvseries" className="nav-bar" />
-
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src={bookMark} alt="bookmark" className="nav-bar" />
-
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src={ellipseIcon} alt="ellipse" className="nav-bar" />
-
-            </a>
-          </li> */}
-        </ul>
-      </nav>
-    // </div>
+    <nav className="navigation-container">
+      <ul>
+        <li>
+          <a href="/home">
+            <img src={movieImage} alt="movieimage" className="nav-bar" />
+          </a>
+        </li>
+        <li>
+          <a href="/home/dashboard">
+            <img src={dashBoard} alt="dashboard" className="nav-bar" />
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src={movie} alt="movie" className="nav-bar" />
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src={tvSeries} alt="tvseries" className="nav-bar" />
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src={bookMark} alt="bookmark" className="nav-bar" />
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src={ellipseIcon} alt="ellipse" className="nav-bar" />
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

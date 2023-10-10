@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import InputField from '../../components/inputfeild/InputFeild';
 import Button from '../../components/button/Button';
@@ -51,10 +50,10 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ registerButtonColor }) => {
       newErrors.email = 'Please enter a valid email address.';
     }
 
-    // const minPasswordLength = 8; 
-    // if (user.password && user.password.length < minPasswordLength) {
-    //   newErrors.password = `Password must be at least ${minPasswordLength} characters long.`;
-    // }
+    const minPasswordLength = 8;
+    if (user.password && user.password.length < minPasswordLength) {
+      newErrors.password = `Password must be at least ${minPasswordLength} characters long.`;
+    }
 
     if (user.password !== user.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match.';
@@ -127,7 +126,6 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ registerButtonColor }) => {
             onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
             error={errors.confirmPassword}
           />
-
           <Button label="Register" onClick={handleRegister} className="register-button" style={{ backgroundColor: registerButtonColor }} />
         </form>
       </div>

@@ -21,14 +21,12 @@
     line-height: 54px;
     letter-spacing: 0em;
     margin: 0;
-    /* text-align: center; */
     color: #BB261A;
 
 }
 
 .input-container {
     background: #1D253A;
-
     padding: 2rem 4rem 3rem;
     text-align: center;
     border-radius: 12px;
@@ -76,7 +74,6 @@
 
 @media screen and (max-width: 768px) {
     .main-container {
-        /* padding:13px; */
         padding: 67px;
     }
 

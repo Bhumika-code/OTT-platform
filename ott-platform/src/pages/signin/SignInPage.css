@@ -46,7 +46,6 @@
   background: #000000;
   border-radius: 12px;
   text-align: center;
-  /* padding: 50px; */
   padding: 42px;
 
 
@@ -89,8 +88,6 @@ p {
 
 
 .right-container {
-  /* background: #1D253A; */
-  /* border-radius: 12px; */
   text-align: center;
   padding: 65px;
 }

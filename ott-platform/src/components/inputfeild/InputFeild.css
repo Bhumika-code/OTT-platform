@@ -23,15 +23,14 @@ input {
   color: white;
   padding: 10px 10px;
 }
-/* input:focus-within{
- border:2px solid white;
-} */
-.error-message{
-  color:red;
+
+.error-message {
+  color: red;
   text-align: left;
 }
-.error{
-  border:2px solid red;
+
+.error {
+  border: 2px solid red;
   border-radius: 8px;
 }
 

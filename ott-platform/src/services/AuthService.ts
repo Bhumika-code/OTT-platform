@@ -3,7 +3,6 @@ interface SignInData {
   email: string;
   password: string;
 }
-
 export const signIn = async (user: SignInData): Promise<boolean> => {
   try {
     const response = await fetch('https://maiora-backend-dev.onrender.com/auth/signin', {
@@ -35,7 +34,6 @@ interface RegistrationData {
   email: string;
   password: string;
 }
-
 export const registerUser = async (user: RegistrationData): Promise<boolean> => {
   try {
     const response = await fetch('https://maiora-backend-dev.onrender.com/auth/signin', {

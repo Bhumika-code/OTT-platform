@@ -8,16 +8,11 @@ import searchicon from '../../assets/homepageimages/search-normal.png';
 
 
 const HomePage: React.FC = () => {
-
-
   const handleSearch = () => {
-
-
   }
 
   return (
     <div className="home-container">
-
       <NavigationBar />
       <div>
         <div className="search-container">
@@ -30,9 +25,6 @@ const HomePage: React.FC = () => {
           />
           <Button label="search" className="search-button" onClick={handleSearch} />
         </div>
-
-
-
       </div>
     </div>
   );

@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import SignInPage from '../pages/signin/SignInPage';
 import SignUpPage from '../pages/signup/SignUpPage';
 import HomePage from '../pages/homepage/HomePage';
@@ -15,8 +13,6 @@ const Routings = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/home" element={<HomePage />} />
             </Routes>
-
-
         </>
     );
 };

@@ -1,0 +1,9 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background: #10141E;
+    gap: 20px;
+    padding: 30px 30px 103px;
+
+}

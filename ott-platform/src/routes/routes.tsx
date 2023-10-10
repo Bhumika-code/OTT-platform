@@ -1,4 +1,4 @@
-// Routes.js
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -9,12 +9,13 @@ import HomePage from '../pages/homepage/HomePage';
 const Routings = () => {
     return (
         <>
-            <Routes>           
+            <Routes>
                 <Route path="/" element={<SignInPage />} />
                 <Route path="/signin" element={<SignInPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/home" element={<HomePage/>}/>
+                <Route path="/home" element={<HomePage />} />
             </Routes>
+
 
         </>
     );

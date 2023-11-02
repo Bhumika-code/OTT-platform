@@ -1,18 +1,16 @@
 import React from "react";
-import './NavigationBar.css'
-import movieImage from '../../assets/images/logo.png'
-import dashBoard from '../../assets/images/Dashboard.png'
-import movie from '../../assets/images/Movie.png'
-import tvSeries from '../../assets/images/TV Series.png'
-import bookMark from '../../assets/images/Bookmark.png'
-import ellipseIcon from '../../assets/images/Ellipse 2.png'
+import "./NavigationBar.css";
+import movieImage from "../../assets/images/logo.svg";
+import dashBoard from "../../assets/images/Dashboardsvg.svg";
+import movie from "../../assets/images/Moviesvg.svg";
+import tvSeries from "../../assets/images/tvseriessvg.svg";
+import bookMark from "../../assets/images/bookmarksvg.svg";
+import ellipseIcon from "../../assets/images/Ellipse 2.svg";
 
 const NavigationBar: React.FC = () => {
   return (
-
-
     <nav className="navigation-container">
-      <ul>
+      <ul className="home-images">
         <li>
           <a href="/home">
             <img src={movieImage} alt="movieimage" className="nav-bar" />

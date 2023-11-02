@@ -23,7 +23,6 @@ const SignInPage: React.FC<SignInPageProps> = ({
   const [user, setUser] = useState({
     email: '',
     password: '',
-    isAuthenticated: false,
   });
   const [errors, setErrors] = useState({
 
@@ -81,7 +80,7 @@ const SignInPage: React.FC<SignInPageProps> = ({
   return (
     <div className="signin-container">
       <h1 className="Movie-container">Movie OTT</h1>
-      <div className="flex-container">
+      <div className="signin-flex-container">
         <div className="left-container">
           <p className="left-p">
             Sign <span className="sign-color">in</span>

@@ -1,0 +1,23 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  position: fixed;
+  z-index: 3;
+  height: 95px;
+  width: 100%;
+  top: 0;
+  background: #10141e;
+}
+
+.search-icon {
+  height: 28px;
+}
+.search-button {
+  background: #5a6a90;
+  width: auto;
+  color: white;
+  font-size: 14px;
+  margin-left: 563px;
+}

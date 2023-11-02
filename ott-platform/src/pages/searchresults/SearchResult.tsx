@@ -1,7 +1,7 @@
 import React from "react";
 import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
 
-const Bookmark: React.FC = () => {
+const SearchResults: React.FC = () => {
   return (
     <div>
       <Searchcontainer placeholder="search for movies or tvseries" />
@@ -9,4 +9,4 @@ const Bookmark: React.FC = () => {
   );
 };
 
-export default Bookmark;
+export default SearchResults;

@@ -1,0 +1,33 @@
+.grid-tvseries-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 100px;
+  gap: 30px;
+}
+.category-tvseries-button {
+  width: 293px;
+  height: 215px;
+  border-radius: 16px;
+  background: #0f766e;
+
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+.category-tvseries-second-button {
+  background: #171e31;
+  width: 293px;
+  height: 215px;
+  border-radius: 16px;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}

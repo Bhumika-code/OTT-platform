@@ -38,7 +38,7 @@ const TvDetails = () => {
   }, [id]);
   return (
     <div className="dashboard-container">
-      <Searchcontainer placeholder="search for tvseries" />
+      <Searchcontainer />
 
       {TvseriesDetails ? (
         <div className="movie-details-flex-container">

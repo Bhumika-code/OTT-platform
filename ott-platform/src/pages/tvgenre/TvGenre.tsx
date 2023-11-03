@@ -27,7 +27,7 @@ const TvGenre: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer placeholder="search for tvseries" />
+      <Searchcontainer />
       <div className="grid-container">
         {genres.map((genre, index) => (
           <Link to={`/home/tvseries/tvgenrecategory/${genre.id}`}>

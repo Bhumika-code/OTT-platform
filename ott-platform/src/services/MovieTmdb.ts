@@ -62,6 +62,19 @@ const fetchpopularTvseries = async () => {
         throw error;
     }
 };
+const searchMovies = async (query: string) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/search/multi?query=${query}&api_key=${API_KEY}`
+        );
+        if (!response.ok) {
+            throw new Error('Failed to search for movies');
+        }
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        throw error;
+    }
+};
 
-
-export { fetchPopularMovies, fetchTrendingMovies, fetchTrendingTvseries,fetchpopularTvseries };
+export { fetchPopularMovies, fetchTrendingMovies, searchMovies,fetchTrendingTvseries,fetchpopularTvseries };

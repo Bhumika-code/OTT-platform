@@ -1,5 +1,5 @@
-import React from 'react';
-import './InputFeild.css';
+import React from "react";
+import "./InputFeild.css";
 
 interface InputFieldProps {
   label: string;
@@ -8,7 +8,7 @@ interface InputFieldProps {
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
-  value?:string;
+  value?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -23,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
   return (
     <div>
       <label>{label}</label>
-      <div className={error ? 'error' : ''}>
+      <div className={error ? "error" : ""}>
         <input
           type={type}
           placeholder={placeholder}

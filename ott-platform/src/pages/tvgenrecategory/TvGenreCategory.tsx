@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
 import movieImage from "../../assets/images/Vector (1).svg";
 import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
@@ -45,7 +44,7 @@ const Movie: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer placeholder="search for tv series" />
+      <Searchcontainer />
 
       <div className="genre-container">
         <div className="genre-container">

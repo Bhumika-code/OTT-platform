@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import "./MovieGenre.css";
 import { Link } from "react-router-dom";
 import { getMovieGenres } from "../../services/MovieGenreList";
@@ -24,7 +23,7 @@ const MovieGenre: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer placeholder="search for movies" />
+      <Searchcontainer />
       <div className="grid-container">
         {genres.map((genre, index) => (
           <Link to={`/home/movie/genrecategory/${genre.id}`}>

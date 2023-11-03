@@ -44,7 +44,7 @@ const GenreCategory: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer placeholder="search for movies" />
+      <Searchcontainer />
 
       <div className="genre-container">
         <div className="genre-container">

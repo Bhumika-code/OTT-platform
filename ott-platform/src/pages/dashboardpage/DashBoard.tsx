@@ -52,7 +52,6 @@ const DashBoard: React.FC = () => {
 
         if (popularResponse.status === "fulfilled") {
           setPopularMovies(popularResponse.value);
-          console.log(popularResponse.value);
         } else {
           console.error(
             "Error fetching popular movies:",
@@ -62,7 +61,6 @@ const DashBoard: React.FC = () => {
 
         if (trendingResponse.status === "fulfilled") {
           setTrendingMovies(trendingResponse.value);
-          console.log(trendingResponse.value);
         } else {
           console.error(
             "Error fetching trending movies:",
@@ -71,7 +69,6 @@ const DashBoard: React.FC = () => {
         }
         if (popularTvseriesResponse.status === "fulfilled") {
           setPopularTvseries(popularTvseriesResponse.value);
-          console.log(popularTvseriesResponse.value);
         } else {
           console.error(
             "Error fetching popular movies:",
@@ -81,7 +78,6 @@ const DashBoard: React.FC = () => {
 
         if (trendingTvseriesResponse.status === "fulfilled") {
           setTrendingTvseries(trendingTvseriesResponse.value);
-          console.log(trendingTvseriesResponse.value);
         } else {
           console.error(
             "Error fetching trending movies:",
@@ -98,7 +94,7 @@ const DashBoard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <Searchcontainer placeholder="search for movies or tv series" />
+      <Searchcontainer />
 
       <div className="trending-movies">
         <div className="movie-trending">

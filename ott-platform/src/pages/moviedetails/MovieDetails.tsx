@@ -36,7 +36,7 @@ const MovieDetails = () => {
   }, [id]);
   return (
     <div className="dashboard-container">
-      <Searchcontainer placeholder="search for movies" />
+      <Searchcontainer />
 
       {movieDetails ? (
         <div className="movie-details-flex-container">

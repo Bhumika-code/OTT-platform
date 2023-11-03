@@ -4,7 +4,7 @@ import Searchcontainer from "../../components/searchcontainer/SearchContanierSha
 const Bookmark: React.FC = () => {
   return (
     <div>
-      <Searchcontainer placeholder="search for movies or tvseries" />
+      <Searchcontainer />
     </div>
   );
 };

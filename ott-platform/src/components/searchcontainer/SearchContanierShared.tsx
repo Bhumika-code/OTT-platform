@@ -5,6 +5,7 @@ import searchicon from "../../assets/homepageimages/search-normal.png";
 import "./SearchContainerShared.css";
 import { searchMovies } from "../../services/MovieTmdb";
 import { Link } from "react-router-dom";
+import movieImage from "../../assets/images/Vector (1).svg";
 
 interface Movie {
   id: number;
@@ -15,7 +16,7 @@ interface Movie {
 }
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
-const SearchResults: React.FC = () => {
+const SearchContainer: React.FC = () => {
   const [searchmovieResults, setSearchmovieResults] = useState<Movie[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -49,33 +50,40 @@ const SearchResults: React.FC = () => {
           onClick={handleSearch}
         />
       </div>
-
       {searchmovieResults.length > 0 && (
         <div>
-          {searchmovieResults.map((search) => (
-            <div key={search.id}>
-              <Link
-                to={`/home/dashboard/moviedetails/${search.id}`}
-                className="image-link"
-              >
-                <img
-                  src={`${IMAGE_BASE_URL}${search.poster_path}`}
-                  alt={`${search.title} Poster`}
-                  className="trending-images"
-                />
-              </Link>
-              <div className="movie-details">
-                {search.release_date}
-                <span className=".">.</span>
-                {search.media_type}
+          <p className="searchresult-number">{`Found ${searchmovieResults.length} results for '${searchQuery}'`}</p>
+          <div className="genre-container">
+            {searchmovieResults.map((movie) => (
+              <div key={movie.id}>
+                <Link
+                  to={`/home/dashboard/moviedetails/${movie.id}`}
+                  className="genre-image-link"
+                >
+                  <img
+                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+                    alt={`${movie.title} Poster`}
+                    className="genre-movie-images"
+                  />
+                </Link>
+                <div className="movie-details">
+                  {movie.release_date}
+                  <span className=".">.</span>
+                  <img
+                    src={movieImage}
+                    alt="movieimage"
+                    className="movie-image"
+                  />
+                  {movie.media_type}
+                </div>
+                <h4 className="movie-title">{movie.title}</h4>
               </div>
-              <h4 className="movie-title">{search.title}</h4>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 };
 
-export default SearchResults;
+export default SearchContainer;

@@ -123,7 +123,7 @@ const DashBoard: React.FC = () => {
         </div>
       </div>
       <div className="trending-movies">
-        <div className="movie-trending">
+        <div className="tv-trending">
           <h2>Trending </h2>
           <Button label="Tvseries" className="movie-button" />
         </div>

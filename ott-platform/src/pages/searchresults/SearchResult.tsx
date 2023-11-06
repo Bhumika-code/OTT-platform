@@ -27,7 +27,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         <div className="genre-container">
           {searchmovieResults.map((movie) => (
             <div key={movie.id}>
-              {/* <BiBookmark className="bookmark-icon-movie-genre" /> */}
               <Link
                 to={`/home/dashboard/moviedetails/${movie.id}`}
                 className="genre-image-link"

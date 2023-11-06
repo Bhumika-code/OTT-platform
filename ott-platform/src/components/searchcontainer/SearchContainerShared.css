@@ -21,3 +21,26 @@
   font-size: 14px;
   margin-left: 563px;
 }
+.search-query-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 30px;
+  margin-top: 60px;
+}
+.searched-images {
+  width: 301px;
+  height: 240px;
+  border-radius: 16px;
+}
+.searchresult-number {
+  color: white;
+  margin-top: 89px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  margin-bottom: 0;
+}
+.genre-container {
+  margin: 0;
+}

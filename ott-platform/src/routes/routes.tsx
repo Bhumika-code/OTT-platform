@@ -39,7 +39,7 @@ const Routings = () => {
             element={<TvGenreCategory />}
           />
           <Route
-            path="/home/dashboard/searchresults"
+            path="/home/dashboard/searchcontainer"
             element={<SearchContainer />}
           />
           <Route index element={<Navigate to="/home/dashboard" />} />

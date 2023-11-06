@@ -76,7 +76,14 @@ h2 {
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 56px;
+}
+.tv-trending {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
 }
 .movie-popular {
   display: flex;
@@ -114,11 +121,9 @@ h2 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-
   z-index: 1;
   background: rgba(17, 17, 17, 0.4);
   color: white;
-
   margin-top: 10px;
   margin-left: 61px;
 }
@@ -135,4 +140,8 @@ body .carousel.carousel-slider .control-arrow {
   margin-top: 112px;
   width: 86px;
   right: 30px;
+}
+.carousel .slider.animated {
+  transition: all 0.35s ease-in-out;
+  height: 305px;
 }

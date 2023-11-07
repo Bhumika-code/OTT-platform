@@ -1,0 +1,9 @@
+.bookmarked-movies {
+  margin-top: 83px;
+  margin-bottom: 0;
+}
+.bookmark-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

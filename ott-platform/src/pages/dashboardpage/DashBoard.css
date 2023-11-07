@@ -1,49 +1,147 @@
+.home-container {
+  padding: 0px 30px 30px;
+}
 .nav-bar-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 30px;
-
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
 }
 
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .feild-style {
-    font-family: Poppins;
-    font-size: 25px;
-    font-weight: 400;
-    width: 550px;
-    text-align: left;
-    padding: 0;
-    border-radius: 8px;
-    background: #10141E;
-}
-
-.search-button {
-    background: #5A6A90;
-    width: auto;
-    color: white;
-    font-size: 14px;
-    align-self: flex-start;
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 400;
+  width: 550px;
+  text-align: left;
+  padding: 0;
+  border-radius: 8px;
+  background: #10141e;
 }
 
 .movie-list {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
-.search-container {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+h2 {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
 }
 
-.trending-movies,
-.popular-movies {
-    font-family: Poppins;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 60px;
-    letter-spacing: 0em;
-    text-align: left;
+.trending-images {
+  width: 200px;
 
+  height: 245px;
+  border-radius: 16px;
+}
+
+.movie-title {
+  color: white;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 1px;
+}
+
+.flex-container {
+  max-width: 1300px;
+}
+
+.movie-button {
+  width: 80px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: black;
+  color: white;
+  font-size: 14px;
+}
+
+.movie-trending {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 56px;
+}
+.tv-trending {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+}
+.movie-popular {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie-details {
+  color: #ebf0f3cb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  text-align: left;
+}
+
+.movie-image {
+  height: 12px;
+  max-width: 30px;
+}
+
+.p-tag {
+  color: #ebf0f3cb;
+  margin: 0;
+}
+
+.bookmark-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 1;
+  background: rgba(17, 17, 17, 0.4);
+  color: white;
+  margin-top: 10px;
+  margin-left: 61px;
+}
+.carousel * {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.carousel .control-dots {
+  display: none;
+}
+
+body .carousel.carousel-slider .control-arrow {
+  margin-top: 112px;
+  width: 86px;
+  right: 30px;
+}
+.carousel .slider.animated {
+  transition: all 0.35s ease-in-out;
+  height: 305px;
 }

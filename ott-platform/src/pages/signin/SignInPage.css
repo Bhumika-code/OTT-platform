@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap");
 
 .signin-container {
-
   padding: 20px;
 
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(124.99deg, #130908 -2.55%, rgba(19, 9, 8, 0) -2.55%, #370C0F 100%),
+  background: linear-gradient(
+      124.99deg,
+      #130908 -2.55%,
+      rgba(19, 9, 8, 0) -2.55%,
+      #370c0f 100%
+    ),
     url(C:\Users\bhumikarasure\Desktop\Streaming-website-project\ott-platform\src\assets\images\background.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 67px;
   gap: 20px;
-
-
 }
 
 .Movie-container {
@@ -27,19 +29,14 @@
   line-height: 54px;
   letter-spacing: 0em;
   text-align: center;
-  color: #BB261A;
-
-
-
-
+  color: #bb261a;
 }
 
-.flex-container {
+.signin-flex-container {
   display: flex;
   flex-direction: row;
-  background: #1D253A;
+  background: #1d253a;
   border-radius: 12px;
-
 }
 
 .left-container {
@@ -47,10 +44,7 @@
   border-radius: 12px;
   text-align: center;
   padding: 42px;
-
-
 }
-
 
 .left-p {
   font-family: Poppins;
@@ -58,13 +52,11 @@
   font-weight: 600;
   line-height: 36px;
   letter-spacing: 0em;
-
 }
 
 .sign-color {
-  color: #BB261A;
+  color: #bb261a;
 }
-
 
 p {
   color: white;
@@ -79,13 +71,10 @@ p {
 }
 
 .signin-button {
-  background: #BB261A;
+  background: #bb261a;
   color: white;
   margin-top: 53px;
-
 }
-
-
 
 .right-container {
   text-align: center;
@@ -93,7 +82,7 @@ p {
 }
 
 .right-p {
-  color: #62D5BA;
+  color: #62d5ba;
   font-family: Poppins;
   font-size: 24px;
   font-weight: 600;
@@ -101,11 +90,10 @@ p {
   letter-spacing: 0em;
   text-align: center;
   margin: 0;
-
 }
 
 .streaming-ott {
-  color: #EB3223
+  color: #eb3223;
 }
 
 .right-p2 {
@@ -116,19 +104,16 @@ p {
   letter-spacing: 0em;
   text-align: center;
   margin-bottom: 2.5rem;
-
 }
 
 .right-container a {
-  color: #62D5BA;
+  color: #62d5ba;
   text-decoration: none;
 }
 
-
 .signup-button {
-  background: #AFB2B9;
+  background: #afb2b9;
   color: white;
-
 }
 
 .loading-iamge {
@@ -140,14 +125,14 @@ p {
     padding: 13px;
   }
 
-  .flex-container {
+  .signin-flex-container {
     flex-direction: column;
     background-color: transparent;
     gap: 30px;
   }
 
   .right-container {
-    background-color: #1D253A;
+    background-color: #1d253a;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 40px;

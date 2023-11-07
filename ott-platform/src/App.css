@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap");
 /* body{
   background: linear-gradient(124.99deg, #130908 -2.55%, rgba(19, 9, 8, 0) -2.55%, #370C0F 100%),
   url(C:\Users\bhumikarasure\Desktop\Streaming-website-project\ott-platform\src\assets\images\background.png);
   background-repeat: no-repeat;
   background-size: cover;
 } */
+html {
+  background: #10141e;
+}

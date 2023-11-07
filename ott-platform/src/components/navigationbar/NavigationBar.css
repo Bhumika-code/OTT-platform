@@ -1,22 +1,20 @@
-
-
 .nav-bar {
-   
 }
 
-ul {
-    background: #171E31;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap:50px;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-    border-radius: 10px;
+.home-images {
+  background: #171e31;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  margin-top: 20;
+  padding: 15px;
+  border-radius: 10px;
+  position: fixed;
 }
 
 li:nth-last-child(5),
-li:nth-last-child(1){
-    margin-top: 2.5rem;
+li:nth-last-child(1) {
+  margin-top: 2.5rem;
 }

@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./TvCarousel.css";
-
+import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
 import movieImage from "../../assets/images/Vector (1).svg";
 interface Tv {
   id: number;
@@ -23,6 +23,10 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
   Tvseries,
   IMAGE_BASE_URL,
 }) => {
+  const handleBookmarkClick = (tv: Tv) => {
+    toggleBookmarkTv(tv);
+  };
+
   function getYear(releaseDate: string): string {
     if (releaseDate) {
       const date = new Date(releaseDate);
@@ -42,7 +46,10 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
     >
       {Tvseries.map((Tv) => (
         <div key={Tv.id}>
-          <BiBookmark className="bookmark-icon" />
+          <BiBookmark
+            className="bookmark-icon"
+            onClick={() => handleBookmarkClick(Tv)}
+          />
           <Link
             to={`/home/dashboard/tvdetails/${Tv.id}`}
             className="image-link"

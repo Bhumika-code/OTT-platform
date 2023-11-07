@@ -5,11 +5,13 @@ import movieImage from "../../assets/images/Vector (1).svg";
 import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
 import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Tv {
   id: number;
   title: string;
+  name: string;
   poster_path: string;
   release_date: string;
   media_type: string;
@@ -19,6 +21,9 @@ interface Tv {
 const Movie: React.FC = () => {
   const { id } = useParams();
   const [TvGeneres, setTvGeneres] = useState<Tv[]>([]);
+  const handleBookmarkClick = (tv: Tv) => {
+    toggleBookmarkTv(tv);
+  };
 
   useEffect(() => {
     if (id) {
@@ -50,7 +55,10 @@ const Movie: React.FC = () => {
         <div className="genre-container">
           {TvGeneres.map((Tv) => (
             <div key={Tv.id}>
-              <BiBookmark className="bookmark-icon-movie-genre" />
+              <BiBookmark
+                className="bookmark-icon-movie-genre"
+                onClick={() => handleBookmarkClick(Tv)}
+              />
               <Link
                 to={`/home/dashboard/tvdetails/${Tv.id}`}
                 className="genre-image-link"
@@ -71,7 +79,7 @@ const Movie: React.FC = () => {
                 />
                 {Tv.media_type}
               </div>
-              <h4 className="movie-title">{Tv.title}</h4>
+              <h4 className="movie-title">{Tv.name}</h4>
             </div>
           ))}
         </div>

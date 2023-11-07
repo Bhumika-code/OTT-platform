@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./MovieCarousel.css";
-
+import { toggleBookmark, getBookmarks } from "../../services/BookmarkService";
 import movieImage from "../../assets/images/Vector (1).svg";
 interface Movie {
   id: number;
@@ -21,6 +21,9 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   movies,
   IMAGE_BASE_URL,
 }) => {
+  const handleBookmarkClick = (movie: Movie) => {
+    toggleBookmark(movie);
+  };
   function getYear(releaseDate: string): string {
     if (releaseDate) {
       const date = new Date(releaseDate);
@@ -28,6 +31,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
     }
     return "";
   }
+
   return (
     <Carousel
       showArrows={true}
@@ -40,7 +44,10 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
     >
       {movies.map((movie) => (
         <div key={movie.id}>
-          <BiBookmark className="bookmark-icon" />
+          <BiBookmark
+            className="bookmark-icon"
+            onClick={() => handleBookmarkClick(movie)}
+          />
           <Link
             to={`/home/dashboard/moviedetails/${movie.id}`}
             className="image-link"

@@ -6,6 +6,7 @@ import movieImage from "../../assets/images/Vector (1).svg";
 import { getMoviesByGenre } from "../../services/MovieGnereListCategory";
 import { useParams } from "react-router-dom";
 import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import { toggleBookmark, getBookmarks } from "../../services/BookmarkService";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Movie {
@@ -19,7 +20,9 @@ interface Movie {
 const GenreCategory: React.FC = () => {
   const { id } = useParams();
   const [movieGeneres, setMovieGeneres] = useState<Movie[]>([]);
-
+  const handleBookmarkClick = (movie: Movie) => {
+    toggleBookmark(movie);
+  };
   useEffect(() => {
     if (id) {
       fetchMovieGenre();
@@ -50,7 +53,10 @@ const GenreCategory: React.FC = () => {
         <div className="genre-container">
           {movieGeneres.map((movie) => (
             <div key={movie.id}>
-              <BiBookmark className="bookmark-icon-movie-genre" />
+              <BiBookmark
+                className="bookmark-icon-movie-genre"
+                onClick={() => handleBookmarkClick(movie)}
+              />
               <Link
                 to={`/home/dashboard/moviedetails/${movie.id}`}
                 className="genre-image-link"

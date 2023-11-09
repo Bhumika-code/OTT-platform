@@ -6,40 +6,76 @@ import movie from "../../assets/images/Moviesvg.svg";
 import tvSeries from "../../assets/images/tvseriessvg.svg";
 import bookMark from "../../assets/images/bookmarksvg.svg";
 import ellipseIcon from "../../assets/images/Ellipse 2.svg";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NavigationBar: React.FC = () => {
+  const location = useLocation();
+  const activeStyle = {
+    filter: "brightness(0) invert(1)",
+  };
+
   return (
     <nav className="navigation-container">
       <ul className="home-images">
         <li>
-          <a href="/home">
+          <NavLink to="/home">
             <img src={movieImage} alt="movieimage" className="nav-bar" />
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/home/dashboard">
-            <img src={dashBoard} alt="dashboard" className="nav-bar" />
-          </a>
+          <NavLink to="/home/dashboard">
+            <img
+              src={dashBoard}
+              alt="dashboard"
+              className="nav-bar"
+              style={
+                window.location.pathname === "/home/dashboard"
+                  ? activeStyle
+                  : {}
+              }
+            />
+          </NavLink>
         </li>
         <li>
-          <a href="/home/movie">
-            <img src={movie} alt="movie" className="nav-bar" />
-          </a>
+          <NavLink to="/home/movie">
+            <img
+              src={movie}
+              alt="movie"
+              className="nav-bar"
+              style={
+                window.location.pathname === "/home/movie" ? activeStyle : {}
+              }
+            />
+          </NavLink>
         </li>
         <li>
-          <a href="/home/tvseries">
-            <img src={tvSeries} alt="tvseries" className="nav-bar" />
-          </a>
+          <NavLink to="/home/tvseries">
+            <img
+              src={tvSeries}
+              alt="tvseries"
+              className="nav-bar"
+              style={
+                window.location.pathname === "/home/tvseries" ? activeStyle : {}
+              }
+            />
+          </NavLink>
         </li>
         <li>
-          <a href="/home/bookmark">
-            <img src={bookMark} alt="bookmark" className="nav-bar" />
-          </a>
+          <NavLink to="/home/bookmark">
+            <img
+              src={bookMark}
+              alt="bookmark"
+              className="nav-bar"
+              style={
+                window.location.pathname === "/home/bookmark" ? activeStyle : {}
+              }
+            />
+          </NavLink>
         </li>
         <li>
-          <a href="/">
+          <NavLink to="/">
             <img src={ellipseIcon} alt="ellipse" className="nav-bar" />
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import movieImage from "../../assets/images/Vector (1).svg";
 import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
-import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
+import Search from "../searchresults/SearchResult";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Tv {
@@ -21,6 +22,7 @@ interface Tv {
 const Movie: React.FC = () => {
   const { id } = useParams();
   const [TvGeneres, setTvGeneres] = useState<Tv[]>([]);
+  const [loading, setLoading] = useState(true);
   const handleBookmarkClick = (tv: Tv) => {
     toggleBookmarkTv(tv);
   };
@@ -40,50 +42,58 @@ const Movie: React.FC = () => {
           } else {
             console.error("Failed to fetch popular movies");
           }
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching popular movies: ", error);
+          setLoading(false);
         });
     }
   };
 
   return (
     <div>
-      <Searchcontainer />
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <>
+          <Search />
 
-      <div className="genre-container">
-        <div className="genre-container">
-          {TvGeneres.map((Tv) => (
-            <div key={Tv.id}>
-              <BiBookmark
-                className="bookmark-icon-movie-genre"
-                onClick={() => handleBookmarkClick(Tv)}
-              />
-              <Link
-                to={`/home/dashboard/tvdetails/${Tv.id}`}
-                className="genre-image-link"
-              >
-                <img
-                  src={`${IMAGE_BASE_URL}${Tv.poster_path}`}
-                  alt={`${Tv.title} Poster`}
-                  className="genre-movie-images"
-                />
-              </Link>
-              <div className="movie-details">
-                {Tv.first_air_date}
-                <span className=".">.</span>
-                <img
-                  src={movieImage}
-                  alt="movieimage"
-                  className="movie-image"
-                />
-                {Tv.media_type}
-              </div>
-              <h4 className="movie-title">{Tv.name}</h4>
+          <div className="genre-container">
+            <div className="genre-container">
+              {TvGeneres.map((Tv) => (
+                <div key={Tv.id}>
+                  <BiBookmark
+                    className="bookmark-icon-movie-genre"
+                    onClick={() => handleBookmarkClick(Tv)}
+                  />
+                  <Link
+                    to={`/home/dashboard/tvdetails/${Tv.id}`}
+                    className="genre-image-link"
+                  >
+                    <img
+                      src={`${IMAGE_BASE_URL}${Tv.poster_path}`}
+                      alt={`${Tv.title} Poster`}
+                      className="genre-movie-images"
+                    />
+                  </Link>
+                  <div className="movie-details">
+                    {Tv.first_air_date}
+                    <span className=".">.</span>
+                    <img
+                      src={movieImage}
+                      alt="movieimage"
+                      className="movie-image"
+                    />
+                    {Tv.media_type}
+                  </div>
+                  <h4 className="movie-title">{Tv.name}</h4>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

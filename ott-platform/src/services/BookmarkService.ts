@@ -1,4 +1,4 @@
-// Get bookmarks from local storage
+
 interface Movie {
   id: number;
   title: string;
@@ -19,7 +19,7 @@ export const getBookmarks = () => {
   return bookmarks;
 };
 
-// Add or remove a movie from bookmarks and update local storage
+
 export const toggleBookmark = (movie:Movie) => {
   const bookmarks = getBookmarks();
   const isBookmarked = bookmarks.some((b:Movie) => b.id === movie.id);

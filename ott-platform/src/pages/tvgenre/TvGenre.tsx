@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-
 import "./TvGenre.css";
 import { Link } from "react-router-dom";
-import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import Searchcontainer from "../../components/searchcontainer/SearchBar";
+import Search from "../searchresults/SearchResult";
 interface Tv {
   id: number;
   title: string;
@@ -27,7 +27,7 @@ const TvGenre: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer />
+      <Search />
       <div className="grid-container">
         {genres.map((genre, index) => (
           <Link to={`/home/tvseries/tvgenrecategory/${genre.id}`}>

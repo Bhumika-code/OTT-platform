@@ -11,8 +11,8 @@ import MovieDetails from "../pages/moviedetails/MovieDetails";
 import GenreCategory from "../pages/genrecategory/GenreCategory";
 import TvGenreCategory from "../pages/tvgenrecategory/TvGenreCategory";
 import TvDetails from "../pages/tvdetails/TvDetails";
-import SearchResults from "../pages/searchresults/SearchResult";
-import SearchContainer from "../components/searchcontainer/SearchContanierShared";
+import Search from "../pages/searchresults/SearchResult";
+import NoSearchResult from "../pages/nosearchresult/NoSearchResult";
 
 const Routings = () => {
   return (
@@ -38,12 +38,11 @@ const Routings = () => {
             path="/home/tvseries/tvgenrecategory/:id"
             element={<TvGenreCategory />}
           />
-          <Route
-            path="/home/dashboard/searchcontainer"
-            element={<SearchContainer />}
-          />
+          <Route path="/home/search/:query" element={<Search />} />
+
           <Route index element={<Navigate to="/home/dashboard" />} />
         </Route>
+        <Route path="/noresult/:query" element={<NoSearchResult />} />
         <Route index element={<Navigate to="/signin" />} />
       </Routes>
     </>

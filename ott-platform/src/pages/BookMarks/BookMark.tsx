@@ -7,8 +7,9 @@ import {
   getBookmarks,
   getBookmarksTv,
 } from "../../services/BookmarkService";
-import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import "./BookMark.css";
+import Search from "../searchresults/SearchResult";
 interface Movie {
   id: number;
   title: string;
@@ -40,7 +41,7 @@ const Bookmark: React.FC = () => {
 
   return (
     <div>
-      <Searchcontainer />
+      <Search />
       <div>
         <h2 className="bookmarked-movies">Bookmarked Movies</h2>
       </div>

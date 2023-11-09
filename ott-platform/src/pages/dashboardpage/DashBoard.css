@@ -145,3 +145,13 @@ body .carousel.carousel-slider .control-arrow {
   transition: all 0.35s ease-in-out;
   height: 305px;
 }
+.loading {
+  color: white;
+}
+.carousel .slider-wrapper.axis-horizontal .slider {
+  -ms-box-orient: horizontal;
+  display: -moz-flex;
+  display: flex;
+  margin-left: -257px;
+  margin-right: 0;
+}

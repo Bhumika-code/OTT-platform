@@ -10,7 +10,8 @@ import {
 } from "../../services/MovieTmdb";
 import MovieCarousel from "../../components/carousel/MovieCarousel";
 import TvCarousel from "../../components/carousel/TvCarousel";
-import Searchcontainer from "../../components/searchcontainer/SearchContanierShared";
+import Searchcontainer from "../../components/searchcontainer/SearchBar";
+import Search from "../searchresults/SearchResult";
 
 interface Movie {
   id: number;
@@ -29,6 +30,7 @@ const DashBoard: React.FC = () => {
   const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
   const [popularTvseries, setPopularTvseries] = useState<Movie[]>([]);
   const [trendingTvseries, setTrendingTvseries] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,8 +86,10 @@ const DashBoard: React.FC = () => {
             trendingTvseriesResponse.reason
           );
         }
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error);
+        setLoading(false);
       }
     };
 
@@ -94,59 +98,65 @@ const DashBoard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <Searchcontainer />
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <>
+          <Search />
 
-      <div className="trending-movies">
-        <div className="movie-trending">
-          <h2>Trending </h2>
-          <Button label="Movie" className="movie-button" />
-        </div>
+          <div className="trending-movies">
+            <div className="movie-trending">
+              <h2>Trending </h2>
+              <Button label="Movie" className="movie-button" />
+            </div>
 
-        <div className="flex-container ">
-          <MovieCarousel
-            movies={trendingMovies}
-            IMAGE_BASE_URL={IMAGE_BASE_URL}
-          />
-        </div>
-      </div>
+            <div className="flex-container ">
+              <MovieCarousel
+                movies={trendingMovies}
+                IMAGE_BASE_URL={IMAGE_BASE_URL}
+              />
+            </div>
+          </div>
 
-      <div className="popular-movies">
-        <div className="movie-popular">
-          <h2>Popular</h2>
-          <Button label="Movie" className="movie-button" />
-        </div>
-        <div className="flex-container">
-          <MovieCarousel
-            movies={popularMovies}
-            IMAGE_BASE_URL={IMAGE_BASE_URL}
-          />
-        </div>
-      </div>
-      <div className="trending-movies">
-        <div className="tv-trending">
-          <h2>Trending </h2>
-          <Button label="Tvseries" className="movie-button" />
-        </div>
+          <div className="popular-movies">
+            <div className="movie-popular">
+              <h2>Popular</h2>
+              <Button label="Movie" className="movie-button" />
+            </div>
+            <div className="flex-container">
+              <MovieCarousel
+                movies={popularMovies}
+                IMAGE_BASE_URL={IMAGE_BASE_URL}
+              />
+            </div>
+          </div>
+          <div className="trending-movies">
+            <div className="tv-trending">
+              <h2>Trending </h2>
+              <Button label="Tvseries" className="movie-button" />
+            </div>
 
-        <div className="flex-container ">
-          <TvCarousel
-            Tvseries={trendingTvseries}
-            IMAGE_BASE_URL={IMAGE_BASE_URL}
-          />
-        </div>
-      </div>
-      <div className="popular-movies">
-        <div className="movie-popular">
-          <h2>Popular</h2>
-          <Button label="Tvseries" className="movie-button" />
-        </div>
-        <div className="flex-container">
-          <TvCarousel
-            Tvseries={popularTvseries}
-            IMAGE_BASE_URL={IMAGE_BASE_URL}
-          />
-        </div>
-      </div>
+            <div className="flex-container ">
+              <TvCarousel
+                Tvseries={trendingTvseries}
+                IMAGE_BASE_URL={IMAGE_BASE_URL}
+              />
+            </div>
+          </div>
+          <div className="popular-movies">
+            <div className="movie-popular">
+              <h2>Popular</h2>
+              <Button label="Tvseries" className="movie-button" />
+            </div>
+            <div className="flex-container">
+              <TvCarousel
+                Tvseries={popularTvseries}
+                IMAGE_BASE_URL={IMAGE_BASE_URL}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

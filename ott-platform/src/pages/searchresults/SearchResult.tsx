@@ -4,6 +4,13 @@ import SearchBar from "../../components/searchcontainer/SearchBar";
 import movieImage from "../../assets/images/Vector (1).svg";
 import "./SearchResult.css";
 import { searchMovies } from "../../services/MovieTmdb";
+import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
+import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
+import {
+  toggleBookmark,
+  getBookmarks,
+  getBookmarksTv,
+} from "../../services/BookmarkService";
 interface Movie {
   id: number;
   title: string;
@@ -11,11 +18,46 @@ interface Movie {
   release_date: string;
   media_type: string;
 }
+interface Tv {
+  id: number;
+  title: string;
+  name: string;
+  poster_path: string;
+  release_date: string;
+  media_type: string;
+  first_air_date: string;
+}
 function Search() {
   const { query } = useParams();
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>(
+    getBookmarks().filter((item: Movie) => item.release_date)
+  );
+  const [bookmarkedTvs, setBookmarkedTvs] = useState<Tv[]>(
+    getBookmarksTv().filter((item: Tv) => item.first_air_date)
+  );
+
   const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
+
+  const handleBookmarkClick = (item: Movie | Tv) => {
+    toggleBookmark(item);
+    if (item.media_type === "movie") {
+      setBookmarkedMovies(
+        getBookmarks().filter((movie: Movie) => movie.release_date)
+      );
+    } else {
+      setBookmarkedTvs(getBookmarksTv().filter((tv: Tv) => tv.first_air_date));
+    }
+  };
+
+  const isMovieBookmarked = (movie: Movie): boolean => {
+    return getBookmarks().some((item: Movie) => item.id === movie.id);
+  };
+
+  const isTvBookmarked = (tv: Tv): boolean => {
+    return getBookmarksTv().some((item: Tv) => item.id === tv.id);
+  };
   useEffect(() => {
     if (query) {
       searchMovies(query)
@@ -47,6 +89,14 @@ function Search() {
           <div className="genre-container">
             {searchResults.map((movie) => (
               <div key={movie.id}>
+                <img
+                  src={
+                    isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon
+                  }
+                  className="bookmark-icon"
+                  onClick={() => handleBookmarkClick(movie)}
+                  alt="bookmarked"
+                />
                 <Link
                   to={`/home/dashboard/moviedetails/${movie.id}`}
                   className="genre-image-link"

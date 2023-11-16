@@ -55,3 +55,27 @@
   letter-spacing: 0em;
   text-align: left;
 }
+.genre-button {
+  width: auto;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.detail-description {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+}
+.genre-button-align {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { getTvseriesDetails } from "../../services/TvDetailsService";
-import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import Search from "../searchresults/SearchResult";
+import { Link } from "react-router-dom";
 
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
@@ -20,8 +19,12 @@ interface Tv {
   overview: string;
   genre_ids: number[];
   status: string;
+  genres: Genre[];
 }
-
+interface Genre {
+  id: number;
+  name: string;
+}
 const TvDetails = () => {
   const { id } = useParams();
   const [TvseriesDetails, setTvseriesDetails] = useState<Tv | null>(null);
@@ -71,6 +74,18 @@ const TvDetails = () => {
                     <p>Status</p>
                     <p>{TvseriesDetails.status}</p>
                   </div>
+                </div>
+                <div className="details-container">
+                  <span className="detail-description">Genres</span>
+                  <span className="genre-button-align">
+                    {TvseriesDetails.genres.map((genre: Genre) => (
+                      <Link to={`/home/tvseries/tvgenrecategory/${genre.id}`}>
+                        <button key={genre.id} className="genre-button">
+                          {genre.name}
+                        </button>
+                      </Link>
+                    ))}
+                  </span>
                 </div>
                 <h1 className="synopsis-header">Synopsis</h1>
                 <p className="synopsis-overview">{TvseriesDetails.overview}</p>

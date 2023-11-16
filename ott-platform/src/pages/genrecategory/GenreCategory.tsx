@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./GenreCategory.css";
 import movieImage from "../../assets/images/Vector (1).svg";
 import { getMoviesByGenre } from "../../services/MovieGnereListCategory";
 import { useParams } from "react-router-dom";
-import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import { toggleBookmark, getBookmarks } from "../../services/BookmarkService";
 import Search from "../searchresults/SearchResult";
+import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
+import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Movie {
@@ -22,8 +22,19 @@ const GenreCategory: React.FC = () => {
   const { id } = useParams();
   const [movieGeneres, setMovieGeneres] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
+  const [bookmarkedMovies, setBookmarkedMovies] = React.useState<Movie[]>(
+    getBookmarks().filter((item: Movie) => item.release_date)
+  );
+
   const handleBookmarkClick = (movie: Movie) => {
     toggleBookmark(movie);
+    setBookmarkedMovies((prevBookmarkedMovies) => {
+      if (isMovieBookmarked(movie)) {
+        return prevBookmarkedMovies.filter((m) => m.id !== movie.id);
+      } else {
+        return [...prevBookmarkedMovies, movie];
+      }
+    });
   };
   useEffect(() => {
     if (id) {
@@ -48,6 +59,9 @@ const GenreCategory: React.FC = () => {
         });
     }
   };
+  const isMovieBookmarked = (movie: Movie): boolean => {
+    return getBookmarks().some((item: Movie) => item.id === movie.id);
+  };
 
   return (
     <div>
@@ -61,9 +75,13 @@ const GenreCategory: React.FC = () => {
             <div className="genre-container">
               {movieGeneres.map((movie) => (
                 <div key={movie.id}>
-                  <BiBookmark
-                    className="bookmark-icon-movie-genre"
+                  <img
+                    src={
+                      isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon
+                    }
+                    className="bookmark-icon"
                     onClick={() => handleBookmarkClick(movie)}
+                    alt="bookmarked"
                   />
                   <Link
                     to={`/home/dashboard/moviedetails/${movie.id}`}
@@ -83,7 +101,7 @@ const GenreCategory: React.FC = () => {
                       alt="movieimage"
                       className="movie-image"
                     />
-                    {movie.media_type}
+                    {movie.media_type || "movie"}
                   </div>
                   <h4 className="movie-title">{movie.title}</h4>
                 </div>

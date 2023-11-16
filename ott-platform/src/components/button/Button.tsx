@@ -3,9 +3,11 @@ import "./Button.css";
 
 interface ButtonProps {
   label: string;
+  color: string;
   onClick?: () => void;
   className?: string;
   style?: CSSProperties;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -13,13 +15,16 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   className,
   style,
+  color,
+  disabled,
 }) => {
   return (
     <button
       type="button"
       onClick={onClick}
       className={className}
-      style={style || {}}
+      style={{ backgroundColor: color, ...style }}
+      disabled={disabled}
     >
       {label}
     </button>

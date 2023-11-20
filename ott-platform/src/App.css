@@ -8,3 +8,7 @@
 html {
   background: #10141e;
 }
+.tv-image {
+  height: 15px;
+  max-width: 30px;
+}

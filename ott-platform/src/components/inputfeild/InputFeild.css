@@ -6,14 +6,11 @@ label {
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-
   color: white;
 }
 
-
 input {
   width: 338px;
-
   border-radius: 8px;
   background: #333333;
 
@@ -33,7 +30,6 @@ input {
   border: 2px solid red;
   border-radius: 8px;
 }
-
 
 @media screen and (max-width: 768px) {
   input {

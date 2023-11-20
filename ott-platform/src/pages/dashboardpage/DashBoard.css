@@ -55,6 +55,7 @@ h2 {
   letter-spacing: 0em;
   text-align: left;
   margin: 1px;
+  width: 248px;
 }
 
 .flex-container {
@@ -118,14 +119,22 @@ h2 {
 
 .bookmark-icon {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   z-index: 1;
-  background: rgba(17, 17, 17, 0.4);
   color: white;
   margin-top: 10px;
-  margin-left: 61px;
+  margin-left: 250px;
+}
+.bookmark-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  color: white;
+  margin-top: 10px;
+  right: 0;
+  padding-left: 203px;
 }
 .carousel * {
   box-sizing: border-box;
@@ -154,4 +163,5 @@ body .carousel.carousel-slider .control-arrow {
   display: flex;
   margin-left: -257px;
   margin-right: 0;
+  right: 550px;
 }

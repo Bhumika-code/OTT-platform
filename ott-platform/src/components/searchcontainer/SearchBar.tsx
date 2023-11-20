@@ -6,10 +6,18 @@ import "./SearchBar.css";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  placeholder?: string;
+  value?: string;
+  buttonColor?: string;
 }
 
-function SearchBar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState("");
+function SearchBar({
+  onSearch,
+  placeholder = "Search for movies or TV series",
+  value = "",
+  buttonColor = "",
+}: SearchBarProps) {
+  const [query, setQuery] = useState(value);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -25,7 +33,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
       <InputField
         label={""}
         type={""}
-        placeholder={"Search for movies or TV series"}
+        placeholder={placeholder}
         className="feild-style"
         value={query}
         onChange={handleInputChange}
@@ -35,9 +43,11 @@ function SearchBar({ onSearch }: SearchBarProps) {
         label="search"
         className="search-button"
         onClick={handleSearchClick}
+        color={buttonColor}
       />
     </div>
   );
 }
 
 export default SearchBar;
+export type { SearchBarProps };

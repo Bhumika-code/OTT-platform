@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import movieImage from "../../assets/images/Vector (1).svg";
+import tvImage from "../../assets/images/tvimage.svg";
 import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
-import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
 import Search from "../searchresults/SearchResult";
+import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
+import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Tv {
@@ -23,8 +23,19 @@ const Movie: React.FC = () => {
   const { id } = useParams();
   const [TvGeneres, setTvGeneres] = useState<Tv[]>([]);
   const [loading, setLoading] = useState(true);
-  const handleBookmarkClick = (tv: Tv) => {
-    toggleBookmarkTv(tv);
+  const [bookmarkedMovies, setBookmarkedMovies] = React.useState<Tv[]>(
+    getBookmarks().filter((item: Tv) => item.release_date)
+  );
+
+  const handleBookmarkClick = (movie: Tv) => {
+    toggleBookmarkTv(movie);
+    setBookmarkedMovies((prevBookmarkedMovies) => {
+      if (isTvBookmarked(movie)) {
+        return prevBookmarkedMovies.filter((m) => m.id !== movie.id);
+      } else {
+        return [...prevBookmarkedMovies, movie];
+      }
+    });
   };
 
   useEffect(() => {
@@ -50,6 +61,9 @@ const Movie: React.FC = () => {
         });
     }
   };
+  const isTvBookmarked = (tv: Tv): boolean => {
+    return getBookmarks().some((item: Tv) => item.id === tv.id);
+  };
 
   return (
     <div>
@@ -63,9 +77,11 @@ const Movie: React.FC = () => {
             <div className="genre-container">
               {TvGeneres.map((Tv) => (
                 <div key={Tv.id}>
-                  <BiBookmark
-                    className="bookmark-icon-movie-genre"
+                  <img
+                    src={isTvBookmarked(Tv) ? bookmarkicon : unbookmarkedicon}
+                    className="bookmark-icon"
                     onClick={() => handleBookmarkClick(Tv)}
+                    alt="bookmarked"
                   />
                   <Link
                     to={`/home/dashboard/tvdetails/${Tv.id}`}
@@ -80,12 +96,8 @@ const Movie: React.FC = () => {
                   <div className="movie-details">
                     {Tv.first_air_date}
                     <span className=".">.</span>
-                    <img
-                      src={movieImage}
-                      alt="movieimage"
-                      className="movie-image"
-                    />
-                    {Tv.media_type}
+                    <img src={tvImage} alt="movieimage" className="tv-image" />
+                    {Tv.media_type || "tv"}
                   </div>
                   <h4 className="movie-title">{Tv.name}</h4>
                 </div>

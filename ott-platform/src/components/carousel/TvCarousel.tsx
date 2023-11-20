@@ -1,10 +1,14 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import { BiBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./TvCarousel.css";
-import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
-import movieImage from "../../assets/images/Vector (1).svg";
+import {
+  toggleBookmarkTv,
+  getBookmarksTv,
+} from "../../services/BookmarkService";
+import tvImage from "../../assets/images/tvimage.svg";
+import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
+import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 interface Tv {
   id: number;
   title: string;
@@ -23,8 +27,19 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
   Tvseries,
   IMAGE_BASE_URL,
 }) => {
-  const handleBookmarkClick = (tv: Tv) => {
-    toggleBookmarkTv(tv);
+  const [bookmarkedMovies, setBookmarkedMovies] = React.useState<Tv[]>(
+    getBookmarksTv().filter((item: Tv) => item.release_date)
+  );
+
+  const handleBookmarkClick = (movie: Tv) => {
+    toggleBookmarkTv(movie);
+    setBookmarkedMovies((prevBookmarkedMovies) => {
+      if (isTvBookmarked(movie)) {
+        return prevBookmarkedMovies.filter((m) => m.id !== movie.id);
+      } else {
+        return [...prevBookmarkedMovies, movie];
+      }
+    });
   };
 
   function getYear(releaseDate: string): string {
@@ -34,6 +49,9 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
     }
     return "";
   }
+  const isTvBookmarked = (tv: Tv): boolean => {
+    return getBookmarksTv().some((item: Tv) => item.id === tv.id);
+  };
   return (
     <Carousel
       showArrows={true}
@@ -41,14 +59,16 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
       showThumbs={false}
       infiniteLoop={true}
       centerMode={true}
-      centerSlidePercentage={20}
+      centerSlidePercentage={25}
       dynamicHeight={false}
     >
       {Tvseries.map((Tv) => (
         <div key={Tv.id}>
-          <BiBookmark
-            className="bookmark-icon"
+          <img
+            src={isTvBookmarked(Tv) ? bookmarkicon : unbookmarkedicon}
+            className="bookmark-button"
             onClick={() => handleBookmarkClick(Tv)}
+            alt="bookmarked"
           />
           <Link
             to={`/home/dashboard/tvdetails/${Tv.id}`}
@@ -63,8 +83,8 @@ const MovieCarousel: React.FC<TvCarouselProps> = ({
           <div className="movie-details">
             {getYear(Tv.first_air_date)}
             <span className=".">.</span>
-            <img src={movieImage} alt="movieimage" className="movie-image" />
-            {Tv.media_type}
+            <img src={tvImage} alt="movieimage" className="tv-image" />
+            {Tv.media_type || "tv"}
           </div>
           <h4 className="movie-title">{Tv.name}</h4>
         </div>

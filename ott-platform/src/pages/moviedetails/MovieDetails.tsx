@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieDetails.css";
 import { getMovieDetails } from "../../services/MovieDetails";
-import Searchcontainer from "../../components/searchcontainer/SearchBar";
 import Search from "../searchresults/SearchResult";
-
+import { Link } from "react-router-dom";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Movie {
@@ -18,6 +17,11 @@ interface Movie {
   overview: string;
   genre_ids: number[];
   status: string;
+  genres: Genre[];
+}
+interface Genre {
+  id: number;
+  name: string;
 }
 
 const MovieDetails = () => {
@@ -69,6 +73,21 @@ const MovieDetails = () => {
                     <p>Status</p>
                     <p>{movieDetails.status}</p>
                   </div>
+                </div>
+                <div className="details-container">
+                  <span className="detail-description">Genres</span>
+                  <span className="genre-button-align">
+                    {movieDetails.genres.map((genre: Genre) => (
+                      <Link
+                        key={genre.id}
+                        to={`/home/movie/genrecategory/${genre.id}`}
+                      >
+                        <button key={genre.id} className="genre-button">
+                          {genre.name}
+                        </button>
+                      </Link>
+                    ))}
+                  </span>
                 </div>
                 <h1 className="synopsis-header">Synopsis</h1>
                 <p className="synopsis-overview">{movieDetails.overview}</p>

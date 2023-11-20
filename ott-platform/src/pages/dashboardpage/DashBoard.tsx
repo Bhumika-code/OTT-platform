@@ -10,7 +10,7 @@ import {
 } from "../../services/MovieTmdb";
 import MovieCarousel from "../../components/carousel/MovieCarousel";
 import TvCarousel from "../../components/carousel/TvCarousel";
-import Searchcontainer from "../../components/searchcontainer/SearchBar";
+
 import Search from "../searchresults/SearchResult";
 
 interface Movie {
@@ -107,7 +107,7 @@ const DashBoard: React.FC = () => {
           <div className="trending-movies">
             <div className="movie-trending">
               <h2>Trending </h2>
-              <Button label="Movie" className="movie-button" />
+              <Button label="Movie" className="movie-button" color="" />
             </div>
 
             <div className="flex-container ">
@@ -121,7 +121,7 @@ const DashBoard: React.FC = () => {
           <div className="popular-movies">
             <div className="movie-popular">
               <h2>Popular</h2>
-              <Button label="Movie" className="movie-button" />
+              <Button label="Movie" className="movie-button" color="" />
             </div>
             <div className="flex-container">
               <MovieCarousel
@@ -133,7 +133,7 @@ const DashBoard: React.FC = () => {
           <div className="trending-movies">
             <div className="tv-trending">
               <h2>Trending </h2>
-              <Button label="Tvseries" className="movie-button" />
+              <Button label="Tvseries" className="movie-button" color="" />
             </div>
 
             <div className="flex-container ">
@@ -146,7 +146,7 @@ const DashBoard: React.FC = () => {
           <div className="popular-movies">
             <div className="movie-popular">
               <h2>Popular</h2>
-              <Button label="Tvseries" className="movie-button" />
+              <Button label="Tvseries" className="movie-button" color="" />
             </div>
             <div className="flex-container">
               <TvCarousel

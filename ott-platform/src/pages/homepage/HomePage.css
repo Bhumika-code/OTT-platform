@@ -6,3 +6,15 @@
   gap: 120px;
   padding: 30px 30px 103px;
 }
+@media (max-width: 1024px) {
+  .home-container {
+    gap: 0;
+    padding-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .home-container {
+    gap: 0;
+    padding-left: 0;
+  }
+}

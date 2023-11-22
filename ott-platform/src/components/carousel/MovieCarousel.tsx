@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 import "./MovieCarousel.css";
@@ -26,7 +26,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   IMAGE_BASE_URL,
   showButtons = true,
 }) => {
-  const [bookmarkedMovies, setBookmarkedMovies] = React.useState<Movie[]>(
+  const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>(
     getBookmarks().filter((item: Movie) => item.release_date)
   );
 
@@ -44,8 +44,25 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   const isMovieBookmarked = (movie: Movie): boolean => {
     return getBookmarks().some((item: Movie) => item.id === movie.id);
   };
-  const isMobile = window.innerWidth <= 767;
-  const isIpadAir = window.innerWidth <= 1180 && !isMobile;
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isIpadAir, setIsIpadAir] = useState(
+    window.innerWidth <= 1024 && !isMobile
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsIpadAir(window.innerWidth <= 1024 && !isMobile);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
+
   return showButtons ? (
     <Carousel
       showArrows={true}
@@ -53,7 +70,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
       showThumbs={false}
       infiniteLoop={true}
       centerMode={true}
-      centerSlidePercentage={isMobile ? 50 : isIpadAir ? 25 : 25}
+      centerSlidePercentage={isMobile ? 50 : isIpadAir ? 50 : 25}
       dynamicHeight={false}
     >
       {movies.map((movie) => (

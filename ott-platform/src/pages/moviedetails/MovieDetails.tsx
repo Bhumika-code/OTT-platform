@@ -18,6 +18,8 @@ interface Movie {
   genre_ids: number[];
   status: string;
   genres: Genre[];
+  runtime: string;
+  tagline: string;
 }
 interface Genre {
   id: number;
@@ -59,6 +61,7 @@ const MovieDetails = () => {
               />
               <div className="movie-card-details-page">
                 <h2 className="details-title">{movieDetails.title}</h2>
+                <p className="tag-line">{movieDetails.tagline}</p>
                 <p className="rating">{movieDetails.vote_average}</p>
                 <div className="details-grid">
                   <div>

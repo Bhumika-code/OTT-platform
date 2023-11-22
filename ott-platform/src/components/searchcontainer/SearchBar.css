@@ -44,3 +44,38 @@
 .genre-container {
   margin: 0;
 }
+@media (max-width: 1200px) {
+  .search-button {
+    margin-left: 290px;
+  }
+}
+@media (max-width: 1024px) {
+  .search-button {
+    margin-left: 241px;
+  }
+}
+@media (max-width: 820px) {
+  .search-button {
+    margin-left: 19px;
+  }
+}
+@media (max-width: 667px) {
+  .search-container {
+    gap: 14px;
+  }
+  .search-button {
+    margin-left: 0;
+    height: 37%;
+  }
+  .searchresult-number {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .search-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

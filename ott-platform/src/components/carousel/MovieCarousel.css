@@ -8,12 +8,7 @@
 .carousel img {
   pointer-events: auto;
 }
-.trending-images {
-  width: 200px;
 
-  height: 245px;
-  border-radius: 16px;
-}
 .slider animated {
   right: 550px;
 }

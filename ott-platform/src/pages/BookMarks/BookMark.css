@@ -7,3 +7,17 @@
   flex-wrap: wrap;
   gap: 30px;
 }
+@media (max-width: 1200px) {
+  .bookmark-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .bookmark-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
+  }
+}

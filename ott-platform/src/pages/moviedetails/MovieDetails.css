@@ -19,7 +19,7 @@
 }
 .details-grid {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   gap: 40px;
   font-size: 1.25rem;
   font-weight: 200;
@@ -46,6 +46,7 @@
   line-height: 72px;
   letter-spacing: 0em;
   text-align: left;
+  margin-bottom: 8px;
 }
 .rating {
   font-family: Poppins;
@@ -78,4 +79,45 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+.tag-line {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+  opacity: 50%;
+}
+@media (max-width: 820px) {
+  .movie-details-flex-container {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .movie-card-details-page {
+    margin: 0;
+  }
+  .synopsis-overview {
+    margin-bottom: 120px;
+  }
+  .movie-card-images {
+    width: 752px;
+    height: 635px;
+    top: 139px;
+    left: 24px;
+    border-radius: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .movie-card-images {
+    width: 716px;
+  }
+}
+@media (max-width: 667px) {
+  .movie-card-images {
+    width: 336px;
+    height: 40%;
+  }
 }

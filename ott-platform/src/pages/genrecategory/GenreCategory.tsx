@@ -73,7 +73,7 @@ const GenreCategory: React.FC = () => {
 
           <div className="genre-container">
             {movieGeneres.map((movie) => (
-              <div key={movie.id}>
+              <div key={movie.id} className="boomark-division">
                 <img
                   src={
                     isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon

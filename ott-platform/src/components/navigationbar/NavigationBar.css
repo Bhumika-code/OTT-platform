@@ -50,7 +50,7 @@ li:nth-last-child(1) {
     margin: 0;
     border-radius: unset;
     width: 100%;
-    gap: 270px;
+    gap: 26%;
     left: -2px;
   }
   .navigation-container {
@@ -75,7 +75,7 @@ li:nth-last-child(1) {
     margin: 0;
     border-radius: unset;
     width: 100%;
-    gap: 192px;
+    gap: 25%;
     left: -2px;
   }
   .navigation-container {
@@ -106,5 +106,9 @@ li:nth-last-child(1) {
   .nav-bar {
     width: 27px;
     height: 25px;
+  }
+  .home-images {
+    width: 100%;
+    gap: 17%;
   }
 }

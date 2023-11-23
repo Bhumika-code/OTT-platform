@@ -5,6 +5,7 @@ import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
 import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
 import Search from "../searchresults/SearchResult";
+import "./TvGenreCategory.css";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
 import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
@@ -77,7 +78,7 @@ const Movie: React.FC = () => {
               <div key={Tv.id}>
                 <img
                   src={isTvBookmarked(Tv) ? bookmarkicon : unbookmarkedicon}
-                  className="bookmark-icon"
+                  className="tv-bookmark-icon"
                   onClick={() => handleBookmarkClick(Tv)}
                   alt="bookmarked"
                 />

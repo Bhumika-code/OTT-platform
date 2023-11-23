@@ -3,21 +3,31 @@
   margin-bottom: 0;
 }
 .bookmark-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+}
+.tv-bookmark-icon {
+  position: absolute;
+  margin-left: 17%;
+  margin-top: 1%;
 }
 @media (max-width: 1200px) {
   .bookmark-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 0;
+    grid-column-gap: 10px;
   }
 }
 @media (max-width: 1024px) {
   .bookmark-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 30px;
+  }
+  .tv-bookmark-icon {
+    margin-left: 37%;
+  }
+}
+@media (max-width: 667px) {
+  .tv-bookmark-icon {
+    margin-left: 25%;
   }
 }

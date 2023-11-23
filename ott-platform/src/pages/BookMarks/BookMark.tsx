@@ -70,7 +70,7 @@ const Bookmark: React.FC = () => {
           <div key={movie.id}>
             <img
               src={isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon}
-              className="bookmark-icon"
+              className="tv-bookmark-icon"
               onClick={() => handleBookmarkClick(movie)}
               alt="bookmarked"
             />
@@ -100,7 +100,7 @@ const Bookmark: React.FC = () => {
           <div key={tv.id}>
             <img
               src={isTvBookmarked(tv) ? bookmarkicon : unbookmarkedicon}
-              className="bookmark-icon"
+              className="tv-bookmark-icon"
               onClick={() => handleBookmarkClick(tv)}
               alt="bookmarked"
             />

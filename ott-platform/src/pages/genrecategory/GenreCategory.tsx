@@ -72,41 +72,39 @@ const GenreCategory: React.FC = () => {
           <Search />
 
           <div className="genre-container">
-            <div className="genre-container">
-              {movieGeneres.map((movie) => (
-                <div key={movie.id}>
+            {movieGeneres.map((movie) => (
+              <div key={movie.id} className="boomark-division">
+                <img
+                  src={
+                    isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon
+                  }
+                  className="bookmark-icon"
+                  onClick={() => handleBookmarkClick(movie)}
+                  alt="bookmarked"
+                />
+                <Link
+                  to={`/home/dashboard/moviedetails/${movie.id}`}
+                  className="genre-image-link"
+                >
                   <img
-                    src={
-                      isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon
-                    }
-                    className="bookmark-icon"
-                    onClick={() => handleBookmarkClick(movie)}
-                    alt="bookmarked"
+                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+                    alt={`${movie.title} Poster`}
+                    className="genre-movie-images"
                   />
-                  <Link
-                    to={`/home/dashboard/moviedetails/${movie.id}`}
-                    className="genre-image-link"
-                  >
-                    <img
-                      src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                      alt={`${movie.title} Poster`}
-                      className="genre-movie-images"
-                    />
-                  </Link>
-                  <div className="movie-details">
-                    {movie.release_date}
-                    <span className=".">.</span>
-                    <img
-                      src={movieImage}
-                      alt="movieimage"
-                      className="movie-image"
-                    />
-                    {movie.media_type || "movie"}
-                  </div>
-                  <h4 className="movie-title">{movie.title}</h4>
+                </Link>
+                <div className="movie-details">
+                  {movie.release_date}
+                  <span className=".">.</span>
+                  <img
+                    src={movieImage}
+                    alt="movieimage"
+                    className="movie-image"
+                  />
+                  {movie.media_type || "movie"}
                 </div>
-              ))}
-            </div>
+                <h4 className="movie-title">{movie.title}</h4>
+              </div>
+            ))}
           </div>
         </>
       )}

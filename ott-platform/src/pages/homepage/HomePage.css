@@ -1,8 +1,8 @@
-.home-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  background: #10141e;
-  gap: 120px;
-  padding: 30px 30px 103px;
+.home-div {
+  margin-left: 8%;
+}
+@media (max-width: 1024px) {
+  .home-div {
+    margin-left: 0;
+  }
 }

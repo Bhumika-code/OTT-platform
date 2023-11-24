@@ -5,6 +5,7 @@ import { getTvseriesByGenre } from "../../services/TvGenreListCategory";
 import { useParams } from "react-router-dom";
 import { toggleBookmarkTv, getBookmarks } from "../../services/BookmarkService";
 import Search from "../searchresults/SearchResult";
+import "./TvGenreCategory.css";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
 import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
@@ -72,37 +73,34 @@ const Movie: React.FC = () => {
       ) : (
         <>
           <Search />
-
           <div className="genre-container">
-            <div className="genre-container">
-              {TvGeneres.map((Tv) => (
-                <div key={Tv.id}>
+            {TvGeneres.map((Tv) => (
+              <div key={Tv.id}>
+                <img
+                  src={isTvBookmarked(Tv) ? bookmarkicon : unbookmarkedicon}
+                  className="tv-bookmark-icon"
+                  onClick={() => handleBookmarkClick(Tv)}
+                  alt="bookmarked"
+                />
+                <Link
+                  to={`/home/dashboard/tvdetails/${Tv.id}`}
+                  className="genre-image-link"
+                >
                   <img
-                    src={isTvBookmarked(Tv) ? bookmarkicon : unbookmarkedicon}
-                    className="bookmark-icon"
-                    onClick={() => handleBookmarkClick(Tv)}
-                    alt="bookmarked"
+                    src={`${IMAGE_BASE_URL}${Tv.poster_path}`}
+                    alt={`${Tv.title} Poster`}
+                    className="genre-movie-images"
                   />
-                  <Link
-                    to={`/home/dashboard/tvdetails/${Tv.id}`}
-                    className="genre-image-link"
-                  >
-                    <img
-                      src={`${IMAGE_BASE_URL}${Tv.poster_path}`}
-                      alt={`${Tv.title} Poster`}
-                      className="genre-movie-images"
-                    />
-                  </Link>
-                  <div className="movie-details">
-                    {Tv.first_air_date}
-                    <span className=".">.</span>
-                    <img src={tvImage} alt="movieimage" className="tv-image" />
-                    {Tv.media_type || "tv"}
-                  </div>
-                  <h4 className="movie-title">{Tv.name}</h4>
+                </Link>
+                <div className="movie-details">
+                  {Tv.first_air_date}
+                  <span className=".">.</span>
+                  <img src={tvImage} alt="movieimage" className="tv-image" />
+                  {Tv.media_type || "tv"}
                 </div>
-              ))}
-            </div>
+                <h4 className="movie-title">{Tv.name}</h4>
+              </div>
+            ))}
           </div>
         </>
       )}

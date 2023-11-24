@@ -6,7 +6,6 @@
   line-height: 41px;
   letter-spacing: 0em;
   top: 64px;
-
   margin: 0;
 }
 .no-results-page {
@@ -21,4 +20,14 @@
   display: flex;
   align-items: center;
   gap: 30px;
+}
+@media (max-width: 1024px) {
+  .no-results-page {
+    background-size: contain;
+  }
+}
+@media (max-width: 667px) {
+  .no-result {
+    font-size: 16px;
+  }
 }

@@ -9,3 +9,17 @@
   height: 240px;
   border-radius: 16px;
 }
+.search-div-container {
+  position: relative;
+}
+.bookmark-genre-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+}
+@media (max-width: 1024px) {
+  .bookmark-genre-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 40px;
+  }
+}

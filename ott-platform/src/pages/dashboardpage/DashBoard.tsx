@@ -10,7 +10,7 @@ import {
 } from "../../services/MovieTmdb";
 import MovieCarousel from "../../components/carousel/MovieCarousel";
 import TvCarousel from "../../components/carousel/TvCarousel";
-
+import SVGLoader from "../../components/SvgLoader";
 import Search from "../searchresults/SearchResult";
 
 interface Movie {
@@ -99,7 +99,9 @@ const DashBoard: React.FC = () => {
   return (
     <div className="dashboard-container">
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
       ) : (
         <>
           <Search />

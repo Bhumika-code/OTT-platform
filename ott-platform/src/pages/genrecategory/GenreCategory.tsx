@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./GenreCategory.css";
-import movieImage from "../../assets/images/Vector (1).svg";
+import movieImage from "../../assets/images/vectormovie.svg";
 import { getMoviesByGenre } from "../../services/MovieGnereListCategory";
 import { useParams } from "react-router-dom";
 import { toggleBookmark, getBookmarks } from "../../services/BookmarkService";
 import Search from "../searchresults/SearchResult";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
 import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
+import SVGLoader from "../../components/SvgLoader";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Movie {
@@ -66,7 +67,9 @@ const GenreCategory: React.FC = () => {
   return (
     <div>
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
       ) : (
         <>
           <Search />

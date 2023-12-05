@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import SearchBar from "../../components/searchcontainer/SearchBar";
-import movieImage from "../../assets/images/Vector (1).svg";
+import movieImage from "../../assets/images/vectormovie.svg";
 import "./SearchResult.css";
 import { searchMovies } from "../../services/MovieTmdb";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
@@ -11,6 +11,7 @@ import {
   getBookmarks,
   getBookmarksTv,
 } from "../../services/BookmarkService";
+import SVGLoader from "../../components/SvgLoader";
 interface Movie {
   id: number;
   title: string;
@@ -30,6 +31,7 @@ interface Tv {
 function Search() {
   const { query } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>(
     getBookmarks().filter((item: Movie) => item.release_date)
@@ -63,12 +65,14 @@ function Search() {
       searchMovies(query)
         .then((data) => {
           setSearchResults(data);
+          setLoading(false);
           if (data.length === 0) {
             navigate(`/noresult/${query}`);
           }
         })
         .catch((error) => {
           console.error("Error fetching search results:", error);
+          setLoading(false);
         });
     }
   }, [query]);
@@ -86,9 +90,9 @@ function Search() {
       {searchResults.length > 0 && (
         <div>
           <p className="searchresult-number">{`Found ${searchResults.length} results for '${query}'`}</p>
-          <div className="genre-container">
+          <div className="bookmark-genre-container">
             {searchResults.map((movie) => (
-              <div key={movie.id}>
+              <div key={movie.id} className="search-div-container">
                 <img
                   src={
                     isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon

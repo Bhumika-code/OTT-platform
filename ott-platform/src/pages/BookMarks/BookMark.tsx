@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import movieImage from "../../assets/images/Vector (1).svg";
+import movieImage from "../../assets/images/vectormovie.svg";
 import tvImage from "../../assets/images/tvimage.svg";
 import {
   toggleBookmark,

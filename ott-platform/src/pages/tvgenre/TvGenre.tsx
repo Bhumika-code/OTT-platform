@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./TvGenre.css";
 import { Link } from "react-router-dom";
 import Search from "../searchresults/SearchResult";
+import SVGLoader from "../../components/SvgLoader";
+import { getTvGenres } from "../../services/TvGenreList";
 interface Tv {
   id: number;
   title: string;
@@ -16,46 +18,55 @@ interface TvGenreProps {
 
 const TvGenre: React.FC<TvGenreProps> = ({ genreColors = [] }) => {
   const [genres, setGenres] = useState<Tv[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const API_KEY = process.env.REACT_APP_API_KEY;
-    fetch(
-      `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=en`
-    )
-      .then((response) => response.json())
-      .then((data) => setGenres(data.genres))
-      .catch((error) => console.error("Error fetching data: ", error));
+    getTvGenres()
+      .then((response) => {
+        setGenres(response.data.genres);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div>
       <Search />
-      <div className="grid-container">
-        {genres.map((genre, index) => {
-          const genreColor = genreColors.find(
-            (item) => item.genre.toLowerCase() === genre.name.toLowerCase()
-          );
-          return (
-            <Link to={`/home/tvseries/tvgenrecategory/${genre.id}`}>
-              <button
-                key={genre.id}
-                className={
-                  index % 2 === 0
-                    ? "category-tvseries-button"
-                    : "category-tvseries-second-button"
-                }
-                style={{
-                  backgroundColor: genreColor
-                    ? genreColor.color
-                    : "defaultColor",
-                }}
-              >
-                {genre.name}
-              </button>
-            </Link>
-          );
-        })}
-      </div>
+      {loading ? (
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
+      ) : (
+        <div className="grid-container">
+          {genres.map((genre, index) => {
+            const genreColor = genreColors.find(
+              (item) => item.genre.toLowerCase() === genre.name.toLowerCase()
+            );
+            return (
+              <Link to={`/home/tvseries/tvgenrecategory/${genre.id}`}>
+                <button
+                  key={genre.id}
+                  className={
+                    index % 2 === 0
+                      ? "category-tvseries-button"
+                      : "category-tvseries-second-button"
+                  }
+                  style={{
+                    backgroundColor: genreColor
+                      ? genreColor.color
+                      : "defaultColor",
+                  }}
+                >
+                  {genre.name}
+                </button>
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

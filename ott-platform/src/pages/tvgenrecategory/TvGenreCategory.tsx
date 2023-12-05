@@ -8,6 +8,7 @@ import Search from "../searchresults/SearchResult";
 import "./TvGenreCategory.css";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
 import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
+import SVGLoader from "../../components/SvgLoader";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Tv {
@@ -69,7 +70,9 @@ const Movie: React.FC = () => {
   return (
     <div>
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
       ) : (
         <>
           <Search />

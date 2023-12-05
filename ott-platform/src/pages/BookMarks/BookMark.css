@@ -16,6 +16,9 @@
   .bookmark-container {
     grid-column-gap: 10px;
   }
+  .tv-bookmark-icon {
+    margin-left: 15%;
+  }
 }
 @media (max-width: 1024px) {
   .bookmark-container {

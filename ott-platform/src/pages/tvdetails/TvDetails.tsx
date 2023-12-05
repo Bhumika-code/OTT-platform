@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTvseriesDetails } from "../../services/TvDetailsService";
+import { getMovieCredits } from "../../services/MovieCredits";
 import Search from "../searchresults/SearchResult";
 import { Link } from "react-router-dom";
+import SVGLoader from "../../components/SvgLoader";
 
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
@@ -28,6 +30,7 @@ interface Genre {
 const TvDetails = () => {
   const { id } = useParams();
   const [TvseriesDetails, setTvseriesDetails] = useState<Tv | null>(null);
+  const [tvCredits, setTvCredits] = useState<Tv[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -41,12 +44,21 @@ const TvDetails = () => {
           console.error("Error fetching movie details:", error);
           setLoading(false);
         });
+      getMovieCredits(id)
+        .then((response) => {
+          setTvCredits(response.data.cast);
+        })
+        .catch((error) => {
+          console.error("Error fetching TV credits:", error);
+        });
     }
   }, [id]);
   return (
     <div className="dashboard-container">
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
       ) : (
         <>
           <Search />
@@ -90,6 +102,16 @@ const TvDetails = () => {
                 <h1 className="synopsis-header">Synopsis</h1>
                 <p className="synopsis-overview">{TvseriesDetails.overview}</p>
                 <p>{TvseriesDetails.genre_ids}</p>
+                <h1 className="credits-header">Cast</h1>
+                <section className="credits-flex">
+                  {tvCredits.map((credit: Tv) => (
+                    <a href={`/home/dashboard/persondetails/${credit.id}`}>
+                      <button key={credit.id} className="cast-display">
+                        {credit.name}
+                      </button>
+                    </a>
+                  ))}
+                </section>
               </div>
             </div>
           ) : (

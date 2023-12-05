@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 import "./MovieCarousel.css";
 import { toggleBookmark, getBookmarks } from "../../services/BookmarkService";
-import movieImage from "../../assets/images/Vector (1).svg";
+import movieImage from "../../assets/images/vectormovie.svg";
 import bookmarkicon from "../../assets/images/bookmarkactivesvg.svg";
 import unbookmarkedicon from "../../assets/images/bookmarkiconsvg.svg";
 
@@ -129,4 +129,4 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
 };
 
 export default MovieCarousel;
-export type { MovieCarouselProps };
+export type { MovieCarouselProps, Movie };

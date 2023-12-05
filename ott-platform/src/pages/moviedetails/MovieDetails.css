@@ -34,8 +34,10 @@
   font-family: poppins;
   opacity: 70%;
 }
-.synopsis-header {
+.synopsis-header,
+.credits-header {
   color: white;
+  margin-top: 0;
 }
 .details-title {
   font-family: Poppins;
@@ -89,9 +91,39 @@
   margin: 0;
   opacity: 50%;
 }
+.credits-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+.cast-display {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  background-color: black;
+  text-align: center;
+  text-decoration: none;
+  opacity: 70%;
+  width: max-content;
+  height: auto;
+  margin-bottom: 5%;
+  padding: 4px 12px 4px 12px;
+}
 @media (max-width: 1200px) {
   .movie-card-images {
     width: 41%;
+  }
+}
+@media (max-width: 1024px) {
+  .movie-card-images {
+    margin-top: 148px;
+  }
+  .cast-display {
+    font-size: 12px;
+  }
+  .credits-flex {
+    gap: 2%;
   }
 }
 
@@ -105,8 +137,8 @@
     margin: 0;
     width: 100%;
   }
-  .synopsis-overview {
-    margin-bottom: 120px;
+  .credits-flex {
+    margin-bottom: 150px;
   }
   .movie-card-images {
     width: 100%;
@@ -126,5 +158,24 @@
 @media (max-width: 667px) {
   .movie-card-images {
     height: 389px;
+  }
+  .synopsis-overview {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .genre-button,
+  .tag-line,
+  .details-grid {
+    font-size: 14px;
+  }
+  .details-grid {
+    gap: 25px;
+  }
+  .rating,
+  .synopsis-header,
+  .detail-description {
+    font-size: 16px;
   }
 }

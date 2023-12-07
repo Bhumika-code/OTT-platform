@@ -96,7 +96,7 @@ const GenreCategory: React.FC = () => {
                   />
                 </Link>
                 <div className="movie-details">
-                  {movie.release_date}
+                  {new Date(movie.release_date).getFullYear()}
                   <span className=".">.</span>
                   <img
                     src={movieImage}

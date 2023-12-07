@@ -85,7 +85,7 @@ const Bookmark: React.FC = () => {
               />
             </Link>
             <div className="movie-details">
-              {movie.release_date}
+              {new Date(movie.release_date).getFullYear()}
               <span className=".">.</span>
               <img src={movieImage} alt="movieimage" className="movie-image" />
               {movie.media_type || "movie"}
@@ -115,7 +115,7 @@ const Bookmark: React.FC = () => {
               />
             </Link>
             <div className="movie-details">
-              {tv.first_air_date}
+              {new Date(tv.first_air_date).getFullYear()}
               <span className=".">.</span>
               <img src={tvImage} alt="movieimage" className="tv-image" />
               {tv.media_type || "tv"}

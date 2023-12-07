@@ -96,7 +96,7 @@ const Movie: React.FC = () => {
                   />
                 </Link>
                 <div className="movie-details">
-                  {Tv.first_air_date}
+                  {new Date(Tv.first_air_date).getFullYear()}
                   <span className=".">.</span>
                   <img src={tvImage} alt="movieimage" className="tv-image" />
                   {Tv.media_type || "tv"}

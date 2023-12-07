@@ -12,53 +12,50 @@ import {
   getBookmarksTv,
 } from "../../services/BookmarkService";
 import SVGLoader from "../../components/SvgLoader";
-interface Movie {
+
+interface SearchResult {
   id: number;
   title: string;
+  name?: string;
   poster_path: string;
   release_date: string;
+  first_air_date?: string;
   media_type: string;
 }
-interface Tv {
-  id: number;
-  title: string;
-  name: string;
-  poster_path: string;
-  release_date: string;
-  media_type: string;
-  first_air_date: string;
-}
+
 function Search() {
   const { query } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [searchResults, setSearchResults] = useState<Movie[]>([]);
-  const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>(
-    getBookmarks().filter((item: Movie) => item.release_date)
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useState<SearchResult[]>(
+    getBookmarks().filter((item: SearchResult) => item.release_date)
   );
-  const [bookmarkedTvs, setBookmarkedTvs] = useState<Tv[]>(
-    getBookmarksTv().filter((item: Tv) => item.first_air_date)
+  const [bookmarkedTvs, setBookmarkedTvs] = useState<SearchResult[]>(
+    getBookmarksTv().filter((item: SearchResult) => item.first_air_date)
   );
 
   const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
-  const handleBookmarkClick = (item: Movie | Tv) => {
+  const handleBookmarkClick = (item: SearchResult) => {
     toggleBookmark(item);
     if (item.media_type === "movie") {
       setBookmarkedMovies(
-        getBookmarks().filter((movie: Movie) => movie.release_date)
+        getBookmarks().filter((movie: SearchResult) => movie.release_date)
       );
     } else {
-      setBookmarkedTvs(getBookmarksTv().filter((tv: Tv) => tv.first_air_date));
+      setBookmarkedTvs(
+        getBookmarksTv().filter((tv: SearchResult) => tv.first_air_date)
+      );
     }
   };
 
-  const isMovieBookmarked = (movie: Movie): boolean => {
-    return getBookmarks().some((item: Movie) => item.id === movie.id);
+  const isMovieBookmarked = (movie: SearchResult): boolean => {
+    return getBookmarks().some((item: SearchResult) => item.id === movie.id);
   };
 
-  const isTvBookmarked = (tv: Tv): boolean => {
-    return getBookmarksTv().some((item: Tv) => item.id === tv.id);
+  const isTvBookmarked = (tv: SearchResult): boolean => {
+    return getBookmarksTv().some((item: SearchResult) => item.id === tv.id);
   };
   useEffect(() => {
     if (query) {
@@ -91,37 +88,51 @@ function Search() {
         <div>
           <p className="searchresult-number">{`Found ${searchResults.length} results for '${query}'`}</p>
           <div className="bookmark-genre-container">
-            {searchResults.map((movie) => (
-              <div key={movie.id} className="search-div-container">
+            {searchResults.map((item: SearchResult) => (
+              <div key={item.id} className="search-div-container">
                 <img
                   src={
-                    isMovieBookmarked(movie) ? bookmarkicon : unbookmarkedicon
+                    item.media_type === "movie"
+                      ? isMovieBookmarked(item)
+                        ? bookmarkicon
+                        : unbookmarkedicon
+                      : isTvBookmarked(item)
+                      ? bookmarkicon
+                      : unbookmarkedicon
                   }
                   className="bookmark-icon"
-                  onClick={() => handleBookmarkClick(movie)}
+                  onClick={() => handleBookmarkClick(item)}
                   alt="bookmarked"
                 />
                 <Link
-                  to={`/home/dashboard/moviedetails/${movie.id}`}
+                  to={`/home/dashboard/${
+                    item.media_type === "movie" ? "moviedetails" : "tvdetails"
+                  }/${item.id}`}
                   className="genre-image-link"
                 >
                   <img
-                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                    alt={`${movie.title} Poster`}
+                    src={`${IMAGE_BASE_URL}${item.poster_path}`}
+                    alt={`${item.title} Poster`}
                     className="genre-movie-images"
                   />
                 </Link>
                 <div className="movie-details">
-                  {movie.release_date}
+                  {new Date(
+                    item.media_type === "movie"
+                      ? item.release_date
+                      : item.first_air_date!
+                  ).getFullYear()}
                   <span className=".">.</span>
                   <img
                     src={movieImage}
                     alt="movieimage"
                     className="movie-image"
                   />
-                  {movie.media_type}
+                  {item.media_type}
                 </div>
-                <h4 className="movie-title">{movie.title}</h4>
+                <h4 className="movie-title">
+                  {item.media_type === "movie" ? item.title : item.name}
+                </h4>
               </div>
             ))}
           </div>

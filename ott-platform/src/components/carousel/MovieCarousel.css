@@ -12,3 +12,8 @@
 .slider animated {
   right: 550px;
 }
+@media (max-width: 1024px) {
+  .image-link {
+    width: 94%;
+  }
+}

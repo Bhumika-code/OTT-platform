@@ -23,7 +23,8 @@
 }
 @media (max-width: 1024px) {
   .no-results-page {
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
   }
 }
 @media (max-width: 667px) {

@@ -65,7 +65,7 @@ const fetchpopularTvseries = async () => {
 const searchMovies = async (query: string) => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/search/multi?query=${query}&api_key=${API_KEY}`
+            `${BASE_URL}/search/multi?query=${query}&api_key=${API_KEY}`
         );
         if (!response.ok) {
             throw new Error('Failed to search for movies');

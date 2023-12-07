@@ -13,6 +13,7 @@ import TvGenreCategory from "../pages/tvgenrecategory/TvGenreCategory";
 import TvDetails from "../pages/tvdetails/TvDetails";
 import Search from "../pages/searchresults/SearchResult";
 import NoSearchResult from "../pages/nosearchresult/NoSearchResult";
+import PersonDetailsCast from "../pages/persondetails/PersonDetailsCast";
 
 const Routings = () => {
   return (
@@ -30,6 +31,10 @@ const Routings = () => {
             element={<MovieDetails />}
           />
           <Route path="/home/dashboard/tvdetails/:id" element={<TvDetails />} />
+          <Route
+            path="/home/dashboard/Persondetails/:id"
+            element={<PersonDetailsCast />}
+          />
           <Route
             path="/home/movie/genrecategory/:id"
             element={<GenreCategory />}

@@ -95,7 +95,7 @@ li:nth-last-child(1) {
 @media (max-width: 768px) {
   .home-images {
     width: 100%;
-    gap: 180px;
+    gap: 23%;
   }
   li:nth-last-child(5) {
     margin-left: 6%;

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieDetails.css";
 import { getMovieDetails } from "../../services/MovieDetails";
+import { getMovieCredits } from "../../services/MovieCredits";
 import Search from "../searchresults/SearchResult";
 import { Link } from "react-router-dom";
+import SVGLoader from "../../components/SvgLoader";
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 interface Movie {
   id: number;
+  name: string;
   title: string;
   poster_path: string;
   release_date: string;
@@ -29,6 +32,7 @@ interface Genre {
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState<Movie | null>(null);
+  const [movieCredits, setMovieCredits] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -42,12 +46,21 @@ const MovieDetails = () => {
           console.error("Error fetching movie details:", error);
           setLoading(false);
         });
+      getMovieCredits(id)
+        .then((response) => {
+          setMovieCredits(response.data.cast);
+        })
+        .catch((error) => {
+          console.error("Error fetching movie credits:", error);
+        });
     }
   }, [id]);
   return (
     <div className="dashboard-container">
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loader-container">
+          <SVGLoader />
+        </div>
       ) : (
         <>
           <Search />
@@ -64,6 +77,10 @@ const MovieDetails = () => {
                 <p className="tag-line">{movieDetails.tagline}</p>
                 <p className="rating">{movieDetails.vote_average}</p>
                 <div className="details-grid">
+                  <div>
+                    <p>Length</p>
+                    <p>{movieDetails.runtime}</p>
+                  </div>
                   <div>
                     <p>Language</p>
                     <p>{movieDetails.original_language}</p>
@@ -91,10 +108,22 @@ const MovieDetails = () => {
                       </Link>
                     ))}
                   </span>
+
+                  <h1 className="synopsis-header">Synopsis</h1>
+                  <p className="synopsis-overview">{movieDetails.overview}</p>
+                  <p>{movieDetails.genre_ids}</p>
                 </div>
-                <h1 className="synopsis-header">Synopsis</h1>
-                <p className="synopsis-overview">{movieDetails.overview}</p>
-                <p>{movieDetails.genre_ids}</p>
+
+                <h1 className="credits-header">Cast</h1>
+                <section className="credits-flex">
+                  {movieCredits.map((credit: Movie) => (
+                    <Link to={`/home/dashboard/persondetails/${credit.id}`}>
+                      <button key={credit.id} className="cast-display">
+                        {credit.name}
+                      </button>
+                    </Link>
+                  ))}
+                </section>
               </div>
             </div>
           ) : (

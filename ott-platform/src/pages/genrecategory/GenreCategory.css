@@ -30,12 +30,25 @@
 @media (max-width: 1200px) {
   .genre-container {
     grid-column-gap: 9px;
+    margin-top: 143px;
+  }
+  .genre-movie-images {
+    width: 89%;
+  }
+  .bookmark-icon {
+    margin-left: 71%;
   }
 }
 @media (max-width: 1024px) {
   .genre-container {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 30px;
+  }
+  .genre-movie-images {
+    width: 100%;
+  }
+  .bookmark-icon {
+    margin-left: 84%;
   }
 }
 

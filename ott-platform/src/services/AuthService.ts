@@ -3,9 +3,10 @@ interface SignInData {
   email: string;
   password: string;
 }
+const signinUrl =process.env.REACT_APP_API_ENDPOINT
 export const signIn = async (user: SignInData): Promise<boolean> => {
   try {
-    const response = await fetch('https://maiora-backend-dev.onrender.com/auth/signin', {
+    const response = await fetch(`${signinUrl}/auth/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ interface RegistrationData {
 }
 export const registerUser = async (user: RegistrationData): Promise<boolean> => {
   try {
-    const response = await fetch('https://maiora-backend-dev.onrender.com/auth/signin', {
+    const response = await fetch(`${signinUrl}/auth/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

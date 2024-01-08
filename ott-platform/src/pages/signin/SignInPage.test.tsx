@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { MemoryRouter } from "react-router-dom";
-import SignInPage from "./SignInPage";
+import SignInPage from "../signin/SignInPage";
 
 jest.mock("../../services/AuthService", () => ({
   signIn: jest.fn(() => Promise.resolve(true)),

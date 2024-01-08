@@ -70,7 +70,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
       showThumbs={false}
       infiniteLoop={true}
       centerMode={true}
-      centerSlidePercentage={isMobile ? 50 : isIpadAir ? 50 : 25}
+      centerSlidePercentage={isMobile ? 50 : isIpadAir ? 50 : 33.33}
       dynamicHeight={false}
     >
       {movies.map((movie) => (

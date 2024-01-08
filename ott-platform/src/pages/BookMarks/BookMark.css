@@ -4,17 +4,20 @@
 }
 .bookmark-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
+  row-gap: 30px;
 }
 .tv-bookmark-icon {
   position: absolute;
-  margin-left: 17%;
+  /* margin-left: 17%; */
+  margin-left: 24%;
   margin-top: 1%;
 }
 @media (max-width: 1200px) {
   .bookmark-container {
-    grid-column-gap: 10px;
+    /* grid-column-gap: 10px; */
+    grid-column-gap: 22px;
   }
   .tv-bookmark-icon {
     margin-left: 15%;

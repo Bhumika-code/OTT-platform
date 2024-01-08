@@ -1,87 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Indie+Flower&family=Inter:wght@400;700&family=Poppins&family=Space+Mono&display=swap");
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    background: linear-gradient(124.99deg, #130908 -2.55%, rgba(19, 9, 8, 0) -2.55%, #370C0F 100%),
-        url(C:\Users\bhumikarasure\Desktop\Streaming-website-project\ott-platform\src\assets\images\background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 67px;
-    gap: 20px;
-
+  background: linear-gradient(
+      124.99deg,
+      #130908 -2.55%,
+      rgba(19, 9, 8, 0) -2.55%,
+      #370c0f 100%
+    ),
+    url(C:\Users\bhumikarasure\Desktop\Streaming-website-project\ott-platform\src\assets\images\background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 67px;
+  gap: 20px;
+  height: 100vh;
 }
 
 .Movie-container {
-    font-family: Poppins;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 54px;
-    letter-spacing: 0em;
-    margin: 0;
-    color: #BB261A;
-
+  font-family: Poppins;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: 0em;
+  margin: 0;
+  color: #bb261a;
 }
 
 .input-container {
-    background: #1D253A;
-    padding: 2rem 4rem 3rem;
-    text-align: center;
-    border-radius: 12px;
+  background: #1d253a;
+  padding: 2rem 4rem 3rem;
+  text-align: center;
+  border-radius: 12px;
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
 }
 
 .input-style {
-    background: #181728;
-    width: 480px;
-    border-radius: 8px;
-
-
+  background: #181728;
+  width: 480px;
+  border-radius: 8px;
 }
 
 .register-color {
-    color: white;
-    font-family: Poppins;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 36px;
-    letter-spacing: 0em;
+  color: white;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
 }
 
 .register-button {
-    background: #BB261A;
-    color: white;
-    font-size: 18px;
+  background: #bb261a;
+  color: white;
+  font-size: 18px;
 }
 
 .error-message {
-    color: red;
-    margin: 0
+  color: red;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
-    .main-container {
-        padding: 67px;
-    }
+  .main-container {
+    padding: 67px;
+  }
 
-    .input-container {
-        padding: 20px;
-        margin-bottom: 40px;
-    }
+  .input-container {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
 
-    .input-style {
-        width: 290px;
-    }
-
+  .input-style {
+    width: 290px;
+  }
 }

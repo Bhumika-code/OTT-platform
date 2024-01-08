@@ -37,7 +37,7 @@ interface RegistrationData {
 }
 export const registerUser = async (user: RegistrationData): Promise<boolean> => {
   try {
-    const response = await fetch(`${signinUrl}/auth/signin`, {
+    const response = await fetch(`${signinUrl}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

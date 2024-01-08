@@ -1,6 +1,6 @@
 .image-link {
   display: block;
-  width: 90%;
+  /* width: 90%; */
   height: 100%;
   position: relative;
   margin: 0;
@@ -12,8 +12,21 @@
 .slider animated {
   right: 550px;
 }
+/* .carousel .slide {
+  padding-right: 2%;
+} */
+
+.carousel .slide img {
+  width: 95%;
+}
 @media (max-width: 1024px) {
-  .image-link {
+  /* .image-link {
     width: 94%;
-  }
+  } */
+  /* .slider-wrapper.axis-horizontal .slider {
+    -ms-box-orient: horizontal;
+    display: -moz-flex;
+    display: flex;
+    right: 25%;
+  } */
 }

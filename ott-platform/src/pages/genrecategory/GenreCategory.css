@@ -1,7 +1,9 @@
 .genre-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
+  row-gap: 30px;
   margin-top: 98px;
 }
 
@@ -9,13 +11,15 @@
   width: 100%;
   height: 240px;
   border-radius: 16px;
+  object-fit: cover;
 }
 .home-container {
   padding: 1px 30px 30px 30px;
 }
 .bookmark-icon {
   position: absolute;
-  margin-left: 79%;
+  /* margin-left: 79%; */
+  margin-left: 87%;
   margin-top: 1%;
 }
 .bookmark-icon-movie-genre {
@@ -29,11 +33,11 @@
 }
 @media (max-width: 1200px) {
   .genre-container {
-    grid-column-gap: 9px;
+    grid-column-gap: 22px;
     margin-top: 143px;
   }
   .genre-movie-images {
-    width: 89%;
+    width: 100%;
   }
   .bookmark-icon {
     margin-left: 71%;

@@ -5,9 +5,9 @@ import { Outlet } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="home-container">
+    <div className="home-container" data-testid="navigation-bar">
       <NavigationBar />
-      <div className="home-div">
+      <div className="home-div" data-testid="outlet">
         <Outlet />
       </div>
     </div>
